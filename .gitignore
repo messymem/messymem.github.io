@@ -7,3 +7,7 @@ node_modules/
 # Original submission PDF (untracked): the copy the site serves lives at
 # static/pdfs/messymem_corl2026.pdf, so don't store the same 8.4MB blob twice.
 /_CoRL_2026_Submission__*.pdf
+
+# Large source videos staged for conversion. Only the compressed results in
+# static/videos/ belong in the repo -- never the multi-hundred-MB originals.
+/media_src/

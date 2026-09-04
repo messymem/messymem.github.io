@@ -285,11 +285,27 @@ section[id] {
   margin-bottom: 0.75rem;
 }
 
+/* Icons are transparent PNGs cropped from the overview video and upscaled 3x,
+   so no background or radius -- they sit directly on the card. Displayed well
+   under their native width so they stay crisp on retina. */
 .property-icon {
   width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
+  max-width: 230px;
   margin-bottom: 0.75rem;
+}
+
+/* --- Video elements -------------------------------------------------- */
+.hero-video,
+.method-video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  background: #000;
+}
+
+.method-video {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .caption {

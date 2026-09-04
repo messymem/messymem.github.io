@@ -143,12 +143,13 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: swap for your teaser. Either an image:
-             <img src="./static/images/teaser.png" alt="MessyMem teaser">
-           or a video (drop the file at static/videos/teaser.mp4 and it just works): -->
-      <video id="teaser" class="placeholder-media" autoplay muted loop playsinline
-             poster="./static/images/placeholder.svg">
+      <!-- Splash video: MessyMem_Video_V2.mov, transcoded to 720p H.264, audio stripped.
+           Controls are on because it runs 3:16 -- drop `controls` if you'd rather it read as a
+           silent background loop. -->
+      <video id="teaser" class="hero-video" autoplay muted loop playsinline controls
+             preload="metadata" poster="./static/images/teaser_poster.jpg">
         <source src="./static/videos/teaser.mp4" type="video/mp4">
+        Your browser does not support the video tag.
       </video>
       <h2 class="subtitle has-text-centered">
         <span class="messymem">MessyMem</span> is a memory system for long-horizon and adaptive mobile
@@ -223,7 +224,7 @@
       <div class="column">
         <div class="property-card is-global content has-text-centered">
           <span class="property-num">1</span>
-          <img src="./static/images/placeholder.svg" class="property-icon" alt="Globally queryable">
+          <img src="./static/images/icon-spatially-queryable.png" class="property-icon" alt="Spatially queryable: a map pin anchored to a ground plane">
           <h3 class="title is-5 property-title">Globally Queryable &amp; Spatially Grounded</h3>
           <p>
             A compact 3D scene graph indexes observed objects with world-frame positions, so a query returns
@@ -235,7 +236,7 @@
       <div class="column">
         <div class="property-card is-interaction content has-text-centered">
           <span class="property-num">2</span>
-          <img src="./static/images/placeholder.svg" class="property-icon" alt="Updatable from interactions">
+          <img src="./static/images/icon-updatable-from-interaction.png" class="property-icon" alt="Updatable from interaction: a mobile manipulator opening a drawer">
           <h3 class="title is-5 property-title">Updatable from Interactions</h3>
           <p>
             A VLM interaction analyzer reads a collage of each action window and writes back properties that
@@ -247,7 +248,7 @@
       <div class="column">
         <div class="property-card is-fine content has-text-centered">
           <span class="property-num">3</span>
-          <img src="./static/images/placeholder.svg" class="property-icon" alt="Fine-grained">
+          <img src="./static/images/icon-fine-grained.png" class="property-icon" alt="Fine-grained: a cabinet interior with keyframe focus brackets">
           <h3 class="title is-5 property-title">Fine-Grained</h3>
           <p>
             A keyframe saver links selected images to scene-graph nodes, so the planner can recover visual
@@ -282,6 +283,20 @@
         <span class="p-interaction">updatable from interactions</span>. For a new task, a
         <b>relevant memory retriever</b> pulls node information and keyframes, and a <b>VLM planner</b> uses
         both to select the next primitive.
+      </p>
+    </div>
+
+    <!-- Overview walkthrough: messymem_video.mp4 trimmed to 1:12-2:46, 720p, audio stripped. -->
+    <div class="content has-text-centered mt-6">
+      <h3 class="title is-4">Memory in Action</h3>
+      <video class="method-video" controls playsinline preload="metadata"
+             poster="./static/images/overview_poster.jpg">
+        <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="caption">
+        TODO: caption this walkthrough &mdash; the three memory properties, then the robot building and
+        querying memory during a task.
       </p>
     </div>
 
