@@ -299,14 +299,14 @@ section[id] {
    an absolutely-positioned fullscreen hero background, which drops the element
    out of normal flow and lets the next section render on top of it. */
 .teaser-video,
-.method-video {
+.content-video {
   width: 100%;
   display: block;
   border-radius: 10px;
   background: #000;
 }
 
-.method-video {
+.content-video {
   max-width: 900px;
   margin: 0 auto;
 }

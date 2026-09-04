@@ -205,11 +205,21 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Overview Video</h2>
-        <!-- TODO: paste your YouTube embed URL (use the /embed/ form), or delete this whole section. -->
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/TODO?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+        <!-- messymem_video.mp4 trimmed to 1:12-2:46, 720p H.264, audio stripped.
+             To swap in a YouTube embed later, replace this <video> with:
+             <div class="publication-video">
+               <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&amp;showinfo=0"
+                       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+             </div> -->
+        <video class="content-video" controls playsinline preload="metadata"
+               poster="./static/images/overview_poster.jpg">
+          <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">
+          TODO: caption this walkthrough &mdash; the three memory properties, then the robot building
+          and querying memory during a task.
+        </p>
       </div>
     </div>
   </div>
@@ -240,7 +250,7 @@
           <h3 class="title is-5 property-title">Updatable from Interactions</h3>
           <p>
             A VLM interaction analyzer reads a collage of each action window and writes back properties that
-            passive observation cannot reveal &mdash; locked, empty, heavy, openable, contents.
+            passive observation cannot reveal &mdash; <span class="p-interaction">locked, empty, heavy, openable, contents</span>.
           </p>
         </div>
       </div>
@@ -251,7 +261,7 @@
           <img src="./static/images/icon-fine-grained.png" class="property-icon" alt="Fine-grained: a cabinet interior with keyframe focus brackets">
           <h3 class="title is-5 property-title">Fine-Grained</h3>
           <p>
-            A keyframe saver links selected images to scene-graph nodes, so the planner can recover visual
+            A keyframe saver <i><b>links</b></i> selected images to scene-graph nodes, so the planner can recover visual
             detail a text summary would lose.
           </p>
         </div>
@@ -283,20 +293,6 @@
         <span class="p-interaction">updatable from interactions</span>. For a new task, a
         <b>relevant memory retriever</b> pulls node information and keyframes, and a <b>VLM planner</b> uses
         both to select the next primitive.
-      </p>
-    </div>
-
-    <!-- Overview walkthrough: messymem_video.mp4 trimmed to 1:12-2:46, 720p, audio stripped. -->
-    <div class="content has-text-centered mt-6">
-      <h3 class="title is-4">Memory in Action</h3>
-      <video class="method-video" controls playsinline preload="metadata"
-             poster="./static/images/overview_poster.jpg">
-        <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p class="caption">
-        TODO: caption this walkthrough &mdash; the three memory properties, then the robot building and
-        querying memory during a task.
       </p>
     </div>
 
