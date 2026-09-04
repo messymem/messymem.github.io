@@ -295,7 +295,10 @@ section[id] {
 }
 
 /* --- Video elements -------------------------------------------------- */
-.hero-video,
+/* NOTE: do not name this `.hero-video` -- Bulma already defines that class as
+   an absolutely-positioned fullscreen hero background, which drops the element
+   out of normal flow and lets the next section render on top of it. */
+.teaser-video,
 .method-video {
   width: 100%;
   display: block;
