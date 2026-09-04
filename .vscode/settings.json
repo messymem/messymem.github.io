@@ -1,0 +1,14 @@
+{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "files.associations": { "*.html": "html" },
+  "editor.formatOnSave": false,
+  "html.format.wrapLineLength": 110,
+  "search.exclude": {
+    "static/css/bulma*.css": true,
+    "static/css/fontawesome*.css": true,
+    "static/js/bulma*.js": true,
+    "static/js/fontawesome*.js": true
+  }
+}

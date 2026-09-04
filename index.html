@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ==================== TODO: EDIT SITE METADATA ==================== -->
+  <title>MessyMem: Learning-from-Doing Memory for Mobile Manipulation</title>
+  <meta name="description" content="MessyMem is a memory system for long-horizon and adaptive mobile manipulation, building an interaction-grounded 3D scene graph with linked keyframes.">
+
+  <!-- Social / link previews (fill in the absolute URL once the site is deployed) -->
+  <meta property="og:title" content="MessyMem: Learning-from-Doing Memory for Mobile Manipulation">
+  <meta property="og:description" content="A memory system for long-horizon and adaptive mobile manipulation. CoRL 2026.">
+  <meta property="og:url" content="https://TODO-your-org.github.io/messymem/">
+  <meta property="og:image" content="https://TODO-your-org.github.io/messymem/static/images/teaser.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MessyMem: Learning-from-Doing Memory for Mobile Manipulation">
+  <meta name="twitter:description" content="A memory system for long-horizon and adaptive mobile manipulation. CoRL 2026.">
+  <meta name="twitter:image" content="https://TODO-your-org.github.io/messymem/static/images/teaser.png">
+  <!-- ================================================================== -->
+
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- ============================= NAVBAR ============================= -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#real-robot">Real Robot</a>
+      <a class="navbar-item" href="#experiments">Experiments</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            <span class="messymem">MessyMem</span>:<br>
+            Learning-from-Doing Memory for Mobile Manipulation
+          </h1>
+
+          <!-- TODO: replace placeholder authors. Keep the <sup> markers in sync with the affiliations below. -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://anuvabanwasi.github.io/" target="_blank">Anuva Banwasi</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://william-muckelroy-iii.com/" target="_blank">William Muckelroy III</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://priyasundaresan.github.io/" target="_blank">Priya Sundaresan</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://lfzhao.com/" target="_blank">Linfeng Zhao</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://web.stanford.edu/~bohg/" target="_blank">Jeannette Bohg</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="https://cherieho.com/" target="_blank">Cherie Ho</a><sup></sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup></sup>Stanford University</span>
+            <!-- <span class="author-block"><sup>2</sup>TODO: Second Affiliation</span> -->
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>TODO: equal contribution / corresponding author notes</span>
+          </div>
+
+          <div class="is-size-5 publication-venue mt-3" style="margin: 0.75rem auto 0;">
+            Conference on Robot Learning (CoRL) 2026
+          </div>
+
+          <!-- ---------------------- LINK BUTTONS ----------------------
+               Delete any button you don't have yet rather than leaving a dead link. -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/pdfs/messymem_corl2026.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/TODO" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/TODO/messymem" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=TODO" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TEASER ============================= -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- TODO: swap for your teaser. Either an image:
+             <img src="./static/images/teaser.png" alt="MessyMem teaser">
+           or a video (drop the file at static/videos/teaser.mp4 and it just works): -->
+      <video id="teaser" class="placeholder-media" autoplay muted loop playsinline
+             poster="./static/images/placeholder.svg">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="messymem">MessyMem</span> is a memory system for long-horizon and adaptive mobile
+        manipulation. It builds a 3D scene graph that is
+        <span class="p-global">globally queryable &amp; spatially grounded</span>,
+        <span class="p-interaction">updated through interactions</span>, and
+        <span class="p-fine">fine-grained</span> via linked keyframes.
+        <br><i>TODO: replace with your Figure 1 caption.</i>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABSTRACT ============================ -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Mobile manipulators deployed at home across many rooms and many visits should improve with
+            experience: after failing to open a locked cabinet, or finding an object in a drawer, the robot
+            should use that knowledge to avoid repeated mistakes and complete future tasks more efficiently.
+            However, today's robots often treat each task as new. Currently, compact scene representations
+            omit interaction-derived knowledge, raw video buffers quickly grow to become inefficient and
+            difficult to query, and VLM planners reason at inference time without persistently updating what
+            the robot knows.
+          </p>
+          <p>
+            Memory for mobile manipulation must be <span class="p-global">spatially grounded and
+            queryable</span>, <span class="p-interaction">updatable from interaction</span>, and
+            <span class="p-fine">fine-grained</span> enough to surface visual context that a text summary
+            would lose.
+            We present <span class="messymem">MessyMem</span>, a memory system that enables mobile
+            manipulators to learn from doing by building a compact 3D scene graph and associating it with
+            learned <span class="p-interaction">interaction-derived properties</span> and
+            <span class="p-fine">keyframes</span> for visual detail. A task planner can use
+            this memory to avoid repeated failures, reuse object locations, and recover visual context for
+            long-horizon decisions. We evaluate <span class="messymem">MessyMem</span> across multiple tasks
+            in simulation and on a real mobile manipulator, showing that persistent interaction-grounded
+            memory significantly improves long-horizon task success over representative baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= OVERVIEW / TL;DR VIDEO ======================= -->
+<section class="section" id="overview-video">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview Video</h2>
+        <!-- TODO: paste your YouTube embed URL (use the /embed/ form), or delete this whole section. -->
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/TODO?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== THREE MEMORY PROPERTIES ====================== -->
+<section class="section" id="properties">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Three Properties of Robot Memory</h2>
+    <div class="columns is-centered">
+
+      <div class="column">
+        <div class="property-card is-global content has-text-centered">
+          <span class="property-num">1</span>
+          <img src="./static/images/placeholder.svg" class="property-icon" alt="Globally queryable">
+          <h3 class="title is-5 property-title">Globally Queryable &amp; Spatially Grounded</h3>
+          <p>
+            A compact 3D scene graph indexes observed objects with world-frame positions, so a query returns
+            not only <i>what</i> the robot has seen but <i>where</i> to go to find it.
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="property-card is-interaction content has-text-centered">
+          <span class="property-num">2</span>
+          <img src="./static/images/placeholder.svg" class="property-icon" alt="Updatable from interactions">
+          <h3 class="title is-5 property-title">Updatable from Interactions</h3>
+          <p>
+            A VLM interaction analyzer reads a collage of each action window and writes back properties that
+            passive observation cannot reveal &mdash; locked, empty, heavy, openable, contents.
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="property-card is-fine content has-text-centered">
+          <span class="property-num">3</span>
+          <img src="./static/images/placeholder.svg" class="property-icon" alt="Fine-grained">
+          <h3 class="title is-5 property-title">Fine-Grained</h3>
+          <p>
+            A keyframe saver links selected images to scene-graph nodes, so the planner can recover visual
+            detail a text summary would lose.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== METHOD ============================== -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+      </div>
+    </div>
+    <div class="content has-text-centered">
+      <!-- TODO: export Figure 2 to static/images/method.png -->
+      <img src="./static/images/placeholder.svg" alt="MessyMem approach overview">
+      <p class="has-text-justified mt-4">
+        <b>TODO: Figure 2 caption.</b> A <span class="p-global">scene graph builder</span> maintains a
+        compact 3D graph of observed objects from RGBD observations, keeping memory
+        <span class="p-global">globally queryable and spatially grounded</span>; a
+        <span class="p-fine">keyframe saver</span> links saved images to each object node, supporting
+        <span class="p-fine">fine-grained</span> retrieval; a VLM-based
+        <span class="p-interaction">interaction analyzer</span> infers action-revealed properties from a
+        collage generated over each manipulator action, keeping memory
+        <span class="p-interaction">updatable from interactions</span>. For a new task, a
+        <b>relevant memory retriever</b> pulls node information and keyframes, and a <b>VLM planner</b> uses
+        both to select the next primitive.
+      </p>
+    </div>
+
+    <!-- Optional per-component subsections. Delete what you don't need. -->
+    <div class="columns is-centered">
+      <div class="column is-full content">
+        <h3 class="title is-4"><span class="p-global">Scene Graph Builder</span></h3>
+        <p>TODO: describe segmentation, deprojection, clustering, and instance matching.</p>
+
+        <h3 class="title is-4"><span class="p-interaction">Interaction Analyzer</span></h3>
+        <p>TODO: describe the action-window collage and the structured summary written back to the graph.</p>
+
+        <h3 class="title is-4"><span class="p-fine">Keyframe Saver</span></h3>
+        <p>TODO: describe keyframe selection and how frames are linked to nodes.</p>
+
+        <h3 class="title is-4">Memory Retriever &amp; VLM Planner</h3>
+        <p>TODO: describe retrieval and iterative re-planning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== REAL ROBOT =========================== -->
+<section class="section" id="real-robot">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Real Robot Results</h2>
+        <p class="content">
+          TODO: one or two sentences on the real platform (TidyBot++) and setup.
+          Rollouts are shown at Nx speed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Carousel: duplicate an .item block per rollout. -->
+    <div class="carousel results-carousel">
+      <div class="item">
+        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
+          <source src="./static/videos/real_rollout_1.mp4" type="video/mp4">
+        </video>
+        <p class="caption">TODO: "Find me scissors"</p>
+      </div>
+      <div class="item">
+        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
+          <source src="./static/videos/real_rollout_2.mp4" type="video/mp4">
+        </video>
+        <p class="caption">TODO: "Bring me John's cup"</p>
+      </div>
+      <div class="item">
+        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
+          <source src="./static/videos/real_rollout_3.mp4" type="video/mp4">
+        </video>
+        <p class="caption">TODO: locked-drawer avoidance</p>
+      </div>
+      <div class="item">
+        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
+          <source src="./static/videos/real_rollout_4.mp4" type="video/mp4">
+        </video>
+        <p class="caption">TODO: rollout 4</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SIMULATION ========================= -->
+<section class="section" id="simulation">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Simulation</h2>
+        <p class="content">TODO: describe the simulated environments and task suite.</p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
+          <source src="./static/videos/sim_1.mp4" type="video/mp4">
+        </video>
+        <p class="caption has-text-centered">TODO: sim task 1</p>
+      </div>
+      <div class="column">
+        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
+          <source src="./static/videos/sim_2.mp4" type="video/mp4">
+        </video>
+        <p class="caption has-text-centered">TODO: sim task 2</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= EXPERIMENTS ========================= -->
+<section class="section" id="experiments">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experiments</h2>
+        <p class="content">
+          TODO: headline result. In the paper: <span class="messymem">MessyMem</span> improves task success
+          by 24% over the closest baseline.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="title is-4 has-text-centered">Comparison to Baselines</h3>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable results-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th class="has-text-centered">Task A</th>
+            <th class="has-text-centered">Task B</th>
+            <th class="has-text-centered">Task C</th>
+            <th class="has-text-centered">Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>TODO: Baseline 1</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td></tr>
+          <tr><td>TODO: Baseline 2</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td></tr>
+          <tr><td>TODO: Baseline 3</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td></tr>
+          <tr class="is-selected"><td><b>MessyMem (Ours)</b></td><td class="has-text-centered"><b>&ndash;</b></td><td class="has-text-centered"><b>&ndash;</b></td><td class="has-text-centered"><b>&ndash;</b></td><td class="has-text-centered"><b>&ndash;</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="title is-4 has-text-centered mt-6">Ablations</h3>
+    <p class="content has-text-centered">
+      TODO: each memory property is necessary &mdash; drop in the ablation table or a figure here.
+    </p>
+    <div class="content has-text-centered">
+      <img src="./static/images/placeholder.svg" alt="Ablation results">
+    </div>
+  </div>
+</section>
+
+<!-- ====================== QUALITATIVE / FAILURES ====================== -->
+<section class="section" id="qualitative">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Analysis</h2>
+        <p class="content">
+          TODO: memory-in-action examples (scene-graph snapshots, retrieved keyframes) and failure cases.
+        </p>
+      </div>
+    </div>
+    <div class="content has-text-centered">
+      <img src="./static/images/placeholder.svg" alt="Qualitative examples">
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BIBTEX ============================= -->
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@inproceedings{TODO2026messymem,
+  title     = {MessyMem: Learning-from-Doing Memory for Mobile Manipulation},
+  author    = {TODO, First and TODO, Second and TODO, Third},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<!-- ========================= ACKNOWLEDGEMENTS ========================= -->
+<section class="section" id="acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Acknowledgements</h2>
+    <p>TODO: funding sources, compute, and people to thank.</p>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            <a class="icon-link" href="./static/pdfs/messymem_corl2026.pdf" target="_blank">
+              <i class="fas fa-file-pdf"></i></a>
+            <a class="icon-link" href="https://github.com/TODO/messymem" target="_blank">
+              <i class="fab fa-github"></i></a>
+          </p>
+          <p>
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. It was adapted from the
+            <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a> project page
+            template. Please keep this attribution if you reuse it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

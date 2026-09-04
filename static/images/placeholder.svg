@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Placeholder">
+  <rect width="1600" height="900" fill="#f2f4f7"/>
+  <rect x="12" y="12" width="1576" height="876" fill="none" stroke="#b9c2cf" stroke-width="6" stroke-dasharray="26 20" rx="18"/>
+  <g fill="#8a95a5" font-family="'Google Sans','Noto Sans',Helvetica,Arial,sans-serif" text-anchor="middle">
+    <text x="800" y="430" font-size="58" font-weight="600">Placeholder</text>
+    <text x="800" y="510" font-size="36">drop a figure or video in static/images or static/videos</text>
+  </g>
+</svg>

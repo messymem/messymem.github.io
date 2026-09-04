@@ -1,0 +1,312 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+
+/* =====================================================================
+   MessyMem project-page overrides.
+   Everything above this line is the stock Nerfies stylesheet.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   PAPER PALETTE
+   Sampled directly from the CoRL submission PDF (text spans + figure
+   box strokes). Each of the three memory properties has its own color
+   and is used consistently everywhere the property is named.
+   --------------------------------------------------------------------- */
+:root {
+  /* Property 1 — Globally queryable & spatially grounded */
+  --c-global: #a571c8;
+  /* Property 2 — Updatable from interactions */
+  --c-interaction: #45b5a5;
+  /* Property 3 — Fine-grained */
+  --c-fine: #f08a6e;
+
+  /* Darker variants. The paper colors are tuned for bold display text;
+     these have stronger contrast on white if you ever need a property
+     color on small or non-bold text. Swap in as needed. */
+  --c-global-dark: #8850ad;
+  --c-interaction-dark: #2f8d7f;
+  --c-fine-dark: #d4633f;
+
+  /* Neutral panel fill used in the paper figures */
+  --c-panel: #f5f5f5;
+  --c-rule: #e4e7ec;
+}
+
+/* Inline property mentions: bold + colored, matching the paper.
+   Usage:  <span class="p-global">globally queryable &amp; spatially grounded</span> */
+.p-global,
+.p-interaction,
+.p-fine {
+  font-weight: 700;
+}
+
+.p-global { color: var(--c-global); }
+.p-interaction { color: var(--c-interaction); }
+.p-fine { color: var(--c-fine); }
+
+/* Tinted background variant, for when a mention needs to sit inside a
+   figure caption or a busy block. */
+.p-global-bg,
+.p-interaction-bg,
+.p-fine-bg {
+  font-weight: 700;
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+}
+
+.p-global-bg { color: var(--c-global-dark); background: rgba(165, 113, 200, 0.14); }
+.p-interaction-bg { color: var(--c-interaction-dark); background: rgba(69, 181, 165, 0.16); }
+.p-fine-bg { color: var(--c-fine-dark); background: rgba(240, 138, 110, 0.18); }
+
+.messymem {
+  font-variant: small-caps;
+  font-weight: 600;
+}
+
+.publication-title {
+  line-height: 1.25;
+}
+
+.publication-venue {
+  color: #555;
+  font-weight: bold;
+  margin-top: 0.75rem;
+}
+
+.publication-links {
+  margin-top: 1.25rem;
+}
+
+.publication-links .link-block {
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+/* Section anchors clear the sticky-ish navbar when jumping via #id. */
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+/* Media that has no file yet still shows the dashed poster instead of a
+   collapsed 0-height box. Delete .placeholder-media once assets are in. */
+.placeholder-media {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+/* --- Three-properties row ------------------------------------------- */
+.property-card {
+  height: 100%;
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-top: 5px solid var(--c-accent, var(--c-rule));
+  border-radius: 10px;
+  padding: 1.5rem 1.25rem;
+}
+
+.property-card.is-global { --c-accent: var(--c-global); }
+.property-card.is-interaction { --c-accent: var(--c-interaction); }
+.property-card.is-fine { --c-accent: var(--c-fine); }
+
+.property-card .property-title {
+  color: var(--c-accent);
+  font-weight: 700;
+}
+
+.property-card .property-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.property-icon {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.results-carousel .item .caption {
+  padding: 0.5rem;
+}
+
+.results-table td,
+.results-table th {
+  vertical-align: middle;
+}
+
+.footer {
+  padding: 3rem 1.5rem;
+}
