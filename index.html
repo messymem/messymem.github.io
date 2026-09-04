@@ -199,32 +199,6 @@
   </div>
 </section>
 
-<!-- ======================= OVERVIEW / TL;DR VIDEO ======================= -->
-<section class="section" id="overview-video">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview Video</h2>
-        <!-- messymem_video.mp4 trimmed to 1:12-2:46, 720p H.264, audio stripped.
-             To swap in a YouTube embed later, replace this <video> with:
-             <div class="publication-video">
-               <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&amp;showinfo=0"
-                       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-             </div> -->
-        <video class="content-video" controls playsinline preload="metadata"
-               poster="./static/images/overview_poster.jpg">
-          <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="caption">
-          TODO: caption this walkthrough &mdash; the three memory properties, then the robot building
-          and querying memory during a task.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ====================== THREE MEMORY PROPERTIES ====================== -->
 <section class="section" id="properties">
   <div class="container is-max-desktop">
@@ -280,8 +254,15 @@
       </div>
     </div>
     <div class="content has-text-centered">
-      <!-- TODO: export Figure 2 to static/images/method.png -->
-      <img src="./static/images/placeholder.svg" alt="MessyMem approach overview">
+      <!-- Method walkthrough: messymem_video.mp4 trimmed to 1:12-2:46, 720p H.264, audio stripped.
+           If you'd rather show the static Figure 2 here (or above the video), export it to
+           static/images/method.png and add:
+           <img src="./static/images/method.png" alt="MessyMem approach overview"> -->
+      <video class="content-video" controls playsinline preload="metadata"
+             poster="./static/images/overview_poster.jpg">
+        <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <p class="has-text-justified mt-4">
         <b>TODO: Figure 2 caption.</b> A <span class="p-global">scene graph builder</span> maintains a
         compact 3D graph of observed objects from RGBD observations, keeping memory
@@ -328,31 +309,68 @@
       </div>
     </div>
 
-    <!-- Carousel: duplicate an .item block per rollout. -->
+    <!-- Carousel: one .item per sub-task. Captions match the label burned into the
+         top-right corner of each clip; italics mirror the emphasis in that label. -->
     <div class="carousel results-carousel">
       <div class="item">
-        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
-          <source src="./static/videos/real_rollout_1.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t0_coriander.mp4" type="video/mp4">
         </video>
-        <p class="caption">TODO: "Find me scissors"</p>
+        <p class="caption">Put away the coriander</p>
       </div>
       <div class="item">
-        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
-          <source src="./static/videos/real_rollout_2.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t1_italian_seasoning.mp4" type="video/mp4">
         </video>
-        <p class="caption">TODO: "Bring me John's cup"</p>
+        <p class="caption">Put away Italian seasoning</p>
       </div>
       <div class="item">
-        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
-          <source src="./static/videos/real_rollout_3.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t2_sanitizer.mp4" type="video/mp4">
         </video>
-        <p class="caption">TODO: locked-drawer avoidance</p>
+        <p class="caption">Put away the hand sanitizer</p>
       </div>
       <div class="item">
-        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
-          <source src="./static/videos/real_rollout_4.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t3_exploration.mp4" type="video/mp4">
         </video>
-        <p class="caption">TODO: rollout 4</p>
+        <p class="caption">Exploration</p>
+      </div>
+      <div class="item">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t4_orzo_pasta.mp4" type="video/mp4">
+        </video>
+        <p class="caption">Get the <em>orzo</em> pasta</p>
+      </div>
+      <div class="item">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t5_healthy_drink.mp4" type="video/mp4">
+        </video>
+        <p class="caption">Get me a <em>healthy</em> drink</p>
+      </div>
+      <div class="item">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t6_sock.mp4" type="video/mp4">
+        </video>
+        <p class="caption">Put the sock away</p>
+      </div>
+      <div class="item">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t7_find_scissors.mp4" type="video/mp4">
+        </video>
+        <p class="caption">Find the scissors</p>
+      </div>
+      <div class="item">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t8_johns_cup.mp4" type="video/mp4">
+        </video>
+        <p class="caption">Find John&rsquo;s cup</p>
+      </div>
+      <div class="item">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./static/videos/t9_new_controller.mp4" type="video/mp4">
+        </video>
+        <p class="caption">Find the <em>newly placed</em> game controller</p>
       </div>
     </div>
   </div>
