@@ -1017,6 +1017,18 @@ html { scroll-behavior: smooth; }
   opacity: 0;
   transition: opacity .22s ease;
 }
+
+/* MUST come after the rule above. The `hidden` attribute only hides an element
+   through the UA stylesheet's `display: none`, which ANY author `display` rule
+   overrides -- so `display: flex` above would otherwise leave this overlay
+   permanently on top of the page: invisible at opacity 0, but still covering the
+   viewport, showing `cursor: grab`, and swallowing every scroll via the stage's
+   preventDefault'd wheel handler. Higher specificity (0,2,0 vs 0,1,0) wins
+   without needing !important. */
+.lightbox[hidden] {
+  display: none !important;
+}
+
 .lightbox.is-open { opacity: 1; }
 
 .lightbox-backdrop {

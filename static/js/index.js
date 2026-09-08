@@ -279,20 +279,24 @@ window.HELP_IMPROVE_VIDEOJS = false;
     // backdrop's own click handler can never fire. Close on a click that
     // lands on the stage itself (not the image) and wasn't the end of a drag.
     stage.addEventListener("click", function (e) {
+      if (box.hidden) return;
       if (e.target === stage && !moved) close();
     });
 
     stage.addEventListener("dblclick", function (e) {
+      if (box.hidden) return;
       if (scale > 1) reset(); else zoomAt(2.5, e.clientX, e.clientY);
     });
 
     stage.addEventListener("wheel", function (e) {
+      if (box.hidden) return;
       e.preventDefault();
       zoomAt(scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12), e.clientX, e.clientY);
     }, { passive: false });
 
     /* Pointer drag + two-finger pinch. */
     stage.addEventListener("pointerdown", function (e) {
+      if (box.hidden) return;
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
       stage.setPointerCapture(e.pointerId);
       if (pointers.size === 1) {
