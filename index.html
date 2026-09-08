@@ -151,8 +151,8 @@
         maintains a 3D scene graph that is
         <span class="p-global">globally queryable &amp; spatially grounded</span>,
         <span class="p-interaction">updated through interactions</span>, and
-        <span class="p-fine">fine-grained</span> via linked keyframes &mdash; so the robot reuses what it
-        has learned instead of re-exploring.
+        <span class="p-fine">fine-grained</span> via linked keyframes &mdash; so the robot <b>reuses what it
+        has learned instead of re-exploring</b>.
       </h2>
     </div>
   </div>
@@ -168,8 +168,8 @@
           <p>
             Mobile manipulators deployed across many rooms and visits should improve with experience:
             after discovering that a cabinet is locked or finding an object in a drawer, the robot should
-            reuse that knowledge rather than start each task from scratch. Yet today's robots often treat
-            each task as new: compact scene representations omit interaction-derived knowledge, raw video
+            reuse that knowledge rather than start each task from scratch. Yet <b>today's robots often treat
+            each task as new</b>: compact scene representations omit interaction-derived knowledge, raw video
             histories are difficult to query, and VLM planners reason at inference time without
             persistently updating what the robot knows.
           </p>
@@ -215,7 +215,7 @@
       <h2 class="title is-3">Three Properties of Robot Memory</h2>
       <p class="section-lead">
         Memory for mobile manipulation has to do three things at once. Prior work delivers them
-        separately; <span class="messymem">MessyMem</span> combines all three in one persistent store.
+        <b>separately</b>; <span class="messymem">MessyMem</span> <b>combines all three in one persistent store</b>.
       </p>
     </div>
     <div class="columns is-centered mt-5">
@@ -239,8 +239,8 @@
           <img src="./static/images/icon-updatable-from-interaction.png" class="property-icon" alt="Updatable from interaction: a mobile manipulator opening a drawer">
           <h3 class="title is-5 property-title">Updatable from Interactions</h3>
           <p>
-            Weight, emptiness, articulation, locked-vs-unlocked &mdash; many properties cannot be inferred
-            from passive observation and must be learned by acting. Memory has to record what each
+            Weight, emptiness, articulation, locked-vs-unlocked &mdash; many properties <b>cannot be inferred
+            from passive observation and must be learned by acting</b>. Memory has to record what each
             interaction reveals, including why an attempt failed.
           </p>
         </div>
@@ -271,7 +271,7 @@
         <h2 class="title is-3">Method Overview</h2>
         <p class="section-lead">
           The robot incrementally builds memory from RGB-D observations and manipulation outcomes.
-          Execution runs in a closed loop: retrieve task-relevant memory, plan and execute a primitive,
+          Execution runs in a <b>closed loop</b>: retrieve task-relevant memory, plan and execute a primitive,
           analyze its outcome, update memory, and replan against the updated state.
         </p>
       </div>
@@ -279,7 +279,7 @@
 
     <div class="reveal">
       <figure class="figure-block">
-        <img src="./static/images/figures/fig2_method.jpg"
+        <img loading="lazy" src="./static/images/figures/fig2_method.jpg"
              alt="MessyMem architecture: a scene graph builder, keyframe saver and interaction analyzer update memory, while a memory retriever and VLM planner consume it">
         <figcaption class="figure-caption">
           <b>Figure 2.</b> <b>(Left)</b> A <span class="p-global">scene graph builder</span> incrementally
@@ -338,7 +338,7 @@
           It maintains a seeded property vocabulary (<code>accessible</code>, <code>pickable</code>,
           <code>pushable</code>, <code>fullness</code>, <code>openable</code>), can add open-vocabulary
           properties when useful, records execution outcomes and failure reasons, and refreshes fixture
-          contents. Newer evidence overwrites stale structured values, so incorrect memory can be
+          contents. <b>Newer evidence overwrites stale structured values</b>, so incorrect memory can be
           corrected.
         </p>
       </article>
@@ -370,7 +370,7 @@
           Retrieval then runs in <b>two stages</b>. A text-only pass gives the VLM a compact catalog of
           candidate metadata and the scene-graph summary, and it shortlists frames likely to help. A
           multimodal pass then inspects thumbnails of that shortlist and picks a small, non-redundant set.
-          Structured memory narrows the field first; visual reasoning is spent only on the finalists.
+          <b>Structured memory narrows the field first; visual reasoning is spent only on the finalists.</b>
         </p>
       </article>
 
@@ -394,7 +394,7 @@
     <div class="columns is-centered mt-6">
       <div class="column is-half reveal">
         <figure class="figure-block is-inset">
-          <img src="./static/images/figures/fig4_interaction_analyzer.jpg"
+          <img loading="lazy" src="./static/images/figures/fig4_interaction_analyzer.jpg"
                alt="Interaction collage distinguishing a failed grasp from a locked cabinet">
           <figcaption class="figure-caption">
             <b>Figure 4.</b> Reasoning over the collage lets the analyzer tell a <b>failed grasp</b>
@@ -406,7 +406,7 @@
       </div>
       <div class="column is-half reveal">
         <figure class="figure-block is-inset">
-          <img src="./static/images/figures/fig5_retriever.jpg"
+          <img loading="lazy" src="./static/images/figures/fig5_retriever.jpg"
                alt="The retriever selects keyframes showing an orange cup and a green cup to identify John's cup">
           <figcaption class="figure-caption">
             <b>Figure 5.</b> Given the task <i>go to John's cup</i>, the retriever surfaces frames showing
@@ -448,12 +448,12 @@
       <div class="setup-card">
         <h3 class="setup-title">Primitives</h3>
         <p>All methods use identical navigation, fixture-interaction and manipulation primitives, with a
-           fixed budget of twelve planner calls per simulated task.</p>
+           <b>fixed budget of twelve planner calls</b> per simulated task.</p>
       </div>
       <div class="setup-card">
         <h3 class="setup-title">Metrics</h3>
         <p><b>Task progress</b> from task-specific success criteria, plus the number of actions used.
-           Short scenarios run 50 trials per method, reported with 95% confidence intervals.</p>
+           Short scenarios run <b>50 trials per method</b>, reported with 95% confidence intervals.</p>
       </div>
     </div>
 
@@ -524,10 +524,10 @@
         attempt on <code>cab_1</code> fails because that cabinet is locked, and it finds the banana in
         <code>cab_2</code>. Asked next to <i>find the ketchup</i>, success requires skipping both the
         locked cabinet and the ketchup-free one, and navigating to the still-unexplored
-        <code>cab_3</code>. Re-attempting the locked cabinet counts as a failure.
+        <code>cab_3</code>. <b>Re-attempting the locked cabinet counts as a failure.</b>
       </p>
       <figure class="figure-block is-inset">
-        <img src="./static/images/figures/fig6_locked_cabinets.jpg"
+        <img loading="lazy" src="./static/images/figures/fig6_locked_cabinets.jpg"
              alt="MessyMem records the first cabinet as locked and skips it on the next task, while SG+KF retries it and fails">
         <figcaption class="figure-caption">
           <b>Figure 6.</b> By reasoning over the interaction collage,
@@ -551,13 +551,13 @@
       <p>
         Two cabinets both contain a ketchup bottle. In one it sits alone with clear side access; in the
         other it is wedged between tightly-clustered items. Crucially the cluttered cabinet holds
-        <i>fewer</i> items overall, so raw object counts are anti-correlated with accessibility. After
+        <i>fewer</i> items overall, so <b>raw object counts are anti-correlated with accessibility</b>. After
         finding the mustard seeds memory with interior keyframes, the robot is asked to pick up the
         ketchup &mdash; ending up in front of the wrong, already-open cabinet. Choosing correctly means
         comparing the two interiors from stored keyframes, not counting labels.
       </p>
       <figure class="figure-block is-inset">
-        <img src="./static/images/figures/fig7_clutter_pick.jpg"
+        <img loading="lazy" src="./static/images/figures/fig7_clutter_pick.jpg"
              alt="MessyMem queries keyframes to pick from the less cluttered cabinet, while SG+IA relies on object counts and picks the cluttered one">
         <figcaption class="figure-caption">
           <b>Figure 7.</b> The planner queries relevant keyframes to judge which cabinet is more accessible
@@ -578,8 +578,8 @@
         </div>
       </div>
       <p>
-        A continuous sequence of 25 household tasks in a 10-cabinet kitchen holding more than 60 objects
-        and fixtures, executed for over three hours <b>without resetting memory</b>. The sequence spans
+        A continuous sequence of <b>25 household tasks</b> in a 10-cabinet kitchen holding <b>more than 60
+        objects and fixtures</b>, executed for <b>over three hours</b> <b>without resetting memory</b>. The sequence spans
         four task families &mdash; finding, matching, manipulation, and memory queries &mdash; and requires
         recalling observations from much earlier in the run, distinguishing visually similar instances,
         reasoning about where household objects belong, and reusing what prior manipulation revealed.
@@ -587,7 +587,7 @@
         variants, recalling which objects were stored together, and finding a mug put away earlier.
       </p>
       <figure class="figure-block is-inset">
-        <img src="./static/images/simulation/long_horizon_environment_snapshot.jpg"
+        <img loading="lazy" src="./static/images/simulation/long_horizon_environment_snapshot.jpg"
              alt="Panorama of the ten-cabinet long-horizon kitchen with an inset showing one cabinet interior">
         <figcaption class="figure-caption">
           The long-horizon kitchen: ten cabinets and 60+ objects, with an inset of a single cabinet
@@ -634,8 +634,8 @@
       <div class="column is-four-fifths reveal">
         <h2 class="title is-3">Results</h2>
         <p class="section-lead">
-          <span class="messymem">MessyMem</span> achieves the highest task progress across all three
-          simulated evaluations. No single memory component suffices on its own.
+          <span class="messymem">MessyMem</span> achieves the <b>highest task progress across all three
+          simulated evaluations</b>. <b>No single memory component suffices on its own.</b>
         </p>
       </div>
     </div>
@@ -790,9 +790,9 @@
     <div class="reveal mt-6">
       <h3 class="title is-4 has-text-centered">Memory Remains Useful as It Grows</h3>
       <p class="section-lead has-text-centered">
-        Over three hours of continuous operation, the current goal and scene-graph associations narrow
-        thousands of observations to a small candidate set before visual reranking &mdash; so
-        task-relevant experience stays reachable even as visual memory grows.
+        <b>Over three hours of continuous operation</b>, the current goal and scene-graph associations narrow
+        <b>thousands of observations to a small candidate set</b> before visual reranking &mdash; so
+        <b>task-relevant experience stays reachable even as visual memory grows</b>.
       </p>
       <div class="stat-grid is-triple">
         <div class="stat-tile">
@@ -809,9 +809,9 @@
         </div>
       </div>
       <p class="note-box">
-        All six paired comparisons on the long-horizon evaluation remain significant after Holm
-        correction (<i>p</i><sub>Holm</sub> &lt; 10<sup>&minus;4</sup>). Over 3+ hours, MemER's recency
-        bias makes older evidence increasingly hard to surface, while
+        <b>All six paired comparisons</b> on the long-horizon evaluation <b>remain significant after Holm
+        correction</b> (<i>p</i><sub>Holm</sub> &lt; 10<sup>&minus;4</sup>). Over 3+ hours, <b>MemER's recency
+        bias makes older evidence increasingly hard to surface</b>, while
         <span class="messymem">MessyMem</span> retrieves against the current goal and its scene-graph
         associations. RoboEXP's limitation is instance-level: remembering that a cereal box is inside a
         cabinet does not distinguish Froot Loops from a visually similar Trix box.
@@ -828,7 +828,7 @@
         <h2 class="title is-3">Real Robot Results</h2>
         <p class="section-lead">
           The simulation findings transfer to hardware: <span class="messymem">MessyMem</span> reaches
-          1.00 task progress in both real-world scenarios, while each ablation exposes a distinct failure
+          <b>1.00 task progress in both real-world scenarios</b>, while each ablation exposes a distinct failure
           mode under real perception and manipulation variability.
         </p>
       </div>
@@ -931,7 +931,7 @@
         observed, and which locations remain plausible.
       </p>
       <p>
-        <span class="messymem">MessyMem</span> is the only method to complete all three goals, at
+        <span class="messymem">MessyMem</span> is the <b>only method to complete all three goals</b>, at
         <b>1.00</b> overall progress in <b>10.8 steps</b>. Reusing the discovered lock status rather than
         retrying an infeasible interaction finishes the first goal in 6.4 steps against 7.4 for SG + KF
         and 9.4 for SG. The second goal needs fine-grained detail absent from the scene graph:
@@ -997,8 +997,8 @@
         places the loose sock into the drawer holding its match. Because candidates can share coarse
         attributes like colour, success depends on recalling fine-grained appearance &mdash; pattern as
         well as colour &mdash; while keeping the spatial association between that visual memory and its
-        drawer. The distinguishing attribute and matching drawer are randomized between trials, so the
-        answer cannot be memorized.
+        drawer. The distinguishing attribute and matching drawer are randomized between trials, so <b>the
+        answer cannot be memorized</b>.
       </p>
 
       <div class="chart-block is-compact">
@@ -1024,7 +1024,7 @@
       </div>
 
       <figure class="figure-block is-inset">
-        <img src="./static/images/figures/fig3_sock_matching.jpg"
+        <img loading="lazy" src="./static/images/figures/fig3_sock_matching.jpg"
              alt="MessyMem retrieves drawer-interior keyframes to match the loose sock, while SG+IA selects the wrong drawer">
         <figcaption class="figure-caption">
           <b>Figure 3.</b> During inspection, <span class="messymem">MessyMem</span> links keyframes of the
@@ -1115,6 +1115,42 @@
     </div>
   </div>
 </footer>
+
+
+<!-- ============================ LIGHTBOX ============================
+     Expanded viewer for figures. Injected once and reused: clicking any
+     `.figure-block img` opens it. Pan by dragging, zoom with the wheel,
+     pinch, the +/- buttons, or double-click. Esc closes.
+     ================================================================= -->
+<div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true"
+     aria-label="Expanded figure viewer">
+  <div class="lightbox-backdrop" data-lb="close"></div>
+
+  <div class="lightbox-stage" id="lightboxStage">
+    <img class="lightbox-img" id="lightboxImg" alt="" draggable="false">
+  </div>
+
+  <div class="lightbox-bar">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <div class="lightbox-controls">
+      <button type="button" class="lb-btn" data-lb="zoom-out" aria-label="Zoom out" title="Zoom out (−)">
+        <i class="fas fa-minus" aria-hidden="true"></i>
+      </button>
+      <span class="lightbox-zoom" id="lightboxZoom" aria-live="polite">100%</span>
+      <button type="button" class="lb-btn" data-lb="zoom-in" aria-label="Zoom in" title="Zoom in (+)">
+        <i class="fas fa-plus" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="lb-btn" data-lb="reset" aria-label="Reset zoom" title="Reset (0)">
+        <i class="fas fa-compress" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="lb-btn is-close" data-lb="close" aria-label="Close viewer" title="Close (Esc)">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <p class="lightbox-hint">Drag to pan &middot; scroll or pinch to zoom &middot; double-click to toggle &middot; Esc to close</p>
+</div>
 
 </body>
 </html>
