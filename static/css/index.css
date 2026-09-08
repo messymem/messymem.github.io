@@ -1165,6 +1165,7 @@ body.lb-locked { overflow: hidden; }
    when the eye skims. Applied by scope so it never touches the dark
    lightbox caption, which sets its own colours. */
 .section-lead b,
+.property-card b,
 .method-card b,
 .setup-card b,
 .finding-card b,
