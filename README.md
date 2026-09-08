@@ -31,11 +31,13 @@ serve.sh                    local preview server
 static/
   css/index.css             your styles (stock Nerfies CSS above the MessyMem override block)
   css/bulma*.css            template vendor CSS — don't edit
-  js/index.js               navbar toggle + carousel init
+  js/index.js               nav, scroll reveal, charts, lightbox, carousel
   js/bulma*.js              template vendor JS — don't edit
-  images/                   figures; placeholder.svg + favicon.svg live here
-  videos/                   rollout mp4s (empty — drop yours in)
-  pdfs/messymem_corl2026.pdf  the paper
+  images/figures/           paper figures, extracted by tools/extract_figures.py
+  images/simulation/        RoboCasa stills (page serves the .jpg copies)
+  videos/                   teaser, walkthrough, and the ten rollout clips
+  pdfs/_Public_release__MessyMem.pdf   the paper the page links to
+tools/extract_figures.py    re-extract the paper figures after a revision
 ```
 
 ## Filling it in
