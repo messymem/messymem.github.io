@@ -1217,3 +1217,113 @@ body.lb-locked { overflow: hidden; }
   color: var(--ink-1);
   font-weight: 700;
 }
+
+
+/* --- Long-horizon task families -----------------------------------------
+   The four families each stress a different memory property, so each card is
+   keyed to that property's colour. The fourth (memory queries) draws on all of
+   memory rather than one component, so it takes the blended bar. */
+.taskfam-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.taskfam {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--c-rule);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem 1.25rem;
+  overflow: hidden;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.taskfam:hover {
+  box-shadow: 0 10px 28px rgba(20, 22, 26, 0.08);
+  transform: translateY(-2px);
+}
+
+.taskfam::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--c-accent, var(--c-rule));
+}
+
+.taskfam.is-global { --c-accent: var(--c-global); }
+.taskfam.is-interaction { --c-accent: var(--c-interaction); }
+.taskfam.is-fine { --c-accent: var(--c-fine); }
+.taskfam.is-query {
+  --c-accent: var(--ink-3);
+}
+.taskfam.is-query::before {
+  background: linear-gradient(180deg, var(--c-global), var(--c-interaction), var(--c-fine));
+}
+
+.taskfam-kicker {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.taskfam-name {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--c-accent);
+  margin: 0.15rem 0 0.5rem;
+  line-height: 1.2;
+}
+.taskfam.is-query .taskfam-name { color: var(--ink-1); }
+
+.taskfam p {
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.taskfam code {
+  background: var(--c-panel);
+  color: var(--c-global-dark);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+
+.taskfam-eg {
+  margin-top: 0.75rem !important;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--c-rule);
+  font-size: 0.85rem !important;
+  color: var(--ink-3) !important;
+  font-style: italic;
+}
+
+.taskfam-eg span {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-right: 0.4rem;
+}
+.taskfam.is-query .taskfam-eg span { color: var(--ink-2); }
+
+@media screen and (max-width: 768px) {
+  .taskfam-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taskfam:hover { transform: none; }
+}

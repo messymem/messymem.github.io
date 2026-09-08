@@ -579,13 +579,62 @@
       </div>
       <p>
         A continuous sequence of <b>25 household tasks</b> in a 10-cabinet kitchen holding <b>more than 60
-        objects and fixtures</b>, executed for <b>over three hours</b> <b>without resetting memory</b>. The sequence spans
-        four task families &mdash; finding, matching, manipulation, and memory queries &mdash; and requires
-        recalling observations from much earlier in the run, distinguishing visually similar instances,
-        reasoning about where household objects belong, and reusing what prior manipulation revealed.
-        Examples include matching a cup to one seen earlier, identifying a reusable bottle among similar
-        variants, recalling which objects were stored together, and finding a mug put away earlier.
+        objects and fixtures</b>, executed for <b>over three hours without resetting memory</b>. This is the
+        scenario where all three memory properties are exercised jointly: tasks require recalling
+        observations from much earlier in the run, distinguishing visually similar instances, reasoning
+        about where household objects belong, and reusing what prior manipulation revealed.
       </p>
+      <p>
+        The sequence spans <b>four task families</b>, each stressing a different part of memory:
+      </p>
+
+      <div class="taskfam-grid">
+        <div class="taskfam is-global">
+          <span class="taskfam-kicker">Family 01</span>
+          <h4 class="taskfam-name">Finding</h4>
+          <p>
+            Locate an object whose position was revealed only earlier in the run. Success depends on the
+            scene graph still holding <b><i>where</i></b> it was seen, hours and dozens of actions later,
+            so the robot navigates straight there instead of re-searching the kitchen.
+          </p>
+          <p class="taskfam-eg"><span>Example</span> finding a mug that was put away earlier</p>
+        </div>
+
+        <div class="taskfam is-fine">
+          <span class="taskfam-kicker">Family 02</span>
+          <h4 class="taskfam-name">Matching</h4>
+          <p>
+            Pick out one instance among visually similar variants, where the distinguishing detail is
+            <b>appearance rather than category</b>. A structured label like <code>cup</code> cannot
+            separate them &mdash; only a retrieved keyframe can.
+          </p>
+          <p class="taskfam-eg"><span>Example</span> matching a cup to one observed earlier; identifying a
+            reusable bottle among similar variants</p>
+        </div>
+
+        <div class="taskfam is-interaction">
+          <span class="taskfam-kicker">Family 03</span>
+          <h4 class="taskfam-name">Manipulation</h4>
+          <p>
+            Act on the environment using <b>what earlier interactions revealed</b> &mdash; which fixtures
+            actually open, what each already contains, and therefore where a given object belongs. Memory
+            turns a blind search into a directed one.
+          </p>
+          <p class="taskfam-eg"><span>Example</span> putting an object away with the items it belongs
+            alongside</p>
+        </div>
+
+        <div class="taskfam is-query">
+          <span class="taskfam-kicker">Family 04</span>
+          <h4 class="taskfam-name">Memory Queries</h4>
+          <p>
+            Answer a question <b>directly from memory, with no physical action at all</b>. The task is
+            satisfied only when the answer is recovered from stored state, which makes these the purest
+            test of whether the memory is genuinely queryable.
+          </p>
+          <p class="taskfam-eg"><span>Example</span> recalling which objects were stored together</p>
+        </div>
+      </div>
       <figure class="figure-block is-inset">
         <img loading="lazy" src="./static/images/simulation/long_horizon_environment_snapshot.jpg"
              alt="Panorama of the ten-cabinet long-horizon kitchen with an inset showing one cabinet interior">
