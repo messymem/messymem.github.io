@@ -921,14 +921,32 @@ section[id] {
 }
 
 /* --- Hardware + limitations --------------------------------------------- */
+/* The platform is not one of the three memory properties, so it takes the
+   blended bar rather than borrowing the scene-graph purple, which would read
+   as "globally queryable". Same treatment as the retriever card and the
+   memory-queries task family. */
 .hardware-note {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--c-rule);
-  border-left: 4px solid var(--c-global);
+  border-left: 4px solid transparent;
   border-radius: 0 12px 12px 0;
   padding: 1.25rem 1.5rem;
   margin: 1.5rem auto 2rem;
   max-width: 52rem;
+}
+
+.hardware-note::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -4px;
+  width: 4px;
+  height: calc(100% + 2px);
+  background: linear-gradient(180deg,
+    var(--c-global) 0%, var(--c-global) 26%,
+    var(--c-interaction) 44%, var(--c-interaction) 58%,
+    var(--c-fine) 76%, var(--c-fine) 100%);
 }
 .hardware-title {
   font-size: 0.75rem;
