@@ -36,7 +36,6 @@ static/
   images/figures/           paper figures, extracted by tools/extract_figures.py
   images/simulation/        RoboCasa stills (page serves the .jpg copies)
   videos/                   teaser, walkthrough, and the ten rollout clips
-  pdfs/_Public_release__MessyMem.pdf   the paper the page links to
 tools/extract_figures.py    re-extract the paper figures after a revision
 ```
 

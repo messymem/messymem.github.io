@@ -15,3 +15,7 @@ node_modules/
 # Full-resolution simulation stills. The page serves the optimized .jpg copies
 # beside them; keep the originals locally without committing tens of MB.
 /static/images/simulation/*.png
+
+# Paper PDFs are deliberately not tracked. They were purged from history; keep
+# them locally in static/pdfs/ and link the site at an external copy instead.
+/static/pdfs/*.pdf

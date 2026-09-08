@@ -96,11 +96,14 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
+              <!-- The PDF is not kept in this repo. Restore this button by giving it an
+                   href (arXiv, the lab site, wherever it ends up) and dropping is-pending. -->
               <span class="link-block">
-                <a href="./static/pdfs/_Public_release__MessyMem.pdf" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-dark is-pending"
+                   aria-disabled="true" title="Coming soon">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
+                  <span class="pending-tag">soon</span>
                 </a>
               </span>
               <!-- Pending links: swap `is-pending` + aria-disabled for a real href when each goes live. -->
@@ -1165,10 +1168,6 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content has-text-centered">
-          <p>
-            <a class="icon-link" href="./static/pdfs/_Public_release__MessyMem.pdf" target="_blank"
-               aria-label="Paper PDF"><i class="fas fa-file-pdf"></i></a>
-          </p>
           <p>
             This website is licensed under a
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
