@@ -616,12 +616,29 @@
           <span class="taskfam-kicker">Family 03</span>
           <h4 class="taskfam-name">Manipulation</h4>
           <p>
-            Act on the environment using <b>what earlier interactions revealed</b> &mdash; which fixtures
-            actually open, what each already contains, and therefore where a given object belongs. Memory
-            turns a blind search into a directed one.
+            More than recalling where an object belongs, this is <b>reasoning about whether an action will
+            actually work</b>. The interaction analyzer's property vocabulary is what carries that
+            judgement forward:
+          </p>
+          <p class="taskfam-props">
+            <code>openable</code><code>fullness</code><code>accessible</code><code>pickable</code><code>pushable</code>
+          </p>
+          <p>
+            A fixture recorded as locked or stuck is ruled out before the robot drives to it;
+            <code>fullness</code> and <code>accessible</code> say whether there is room and a clear
+            approach; <code>pickable</code> records what has genuinely been lifted before rather than what
+            merely looks liftable.
+          </p>
+          <p>
+            <b>Object counts alone mislead.</b> A cabinet holding <b><i>fewer</i></b> items can be the
+            harder one to pick from when the target is wedged behind them &mdash; so a planner reasoning
+            only over the scene graph's tallies drives to exactly the wrong cabinet. Executability comes
+            from what the analyzer wrote down and what the keyframes show, not from how many labels a node
+            happens to list.
           </p>
           <p class="taskfam-eg"><span>Example</span> putting an object away with the items it belongs
-            alongside</p>
+            alongside; choosing the reachable instance over a nearer one that is boxed in, and skipping a
+            fixture already known to be locked</p>
         </div>
 
         <div class="taskfam is-query">
@@ -632,7 +649,7 @@
             satisfied only when the answer is recovered from stored state, which makes these the purest
             test of whether the memory is genuinely queryable.
           </p>
-          <p class="taskfam-eg"><span>Example</span> recalling which objects were stored together</p>
+          <p class="taskfam-eg"><span>Example</span> recalling which objects were stored in the cabinet with the ketchup and mayonaise</p>
         </div>
       </div>
       <figure class="figure-block is-inset">

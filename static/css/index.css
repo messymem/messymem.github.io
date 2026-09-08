@@ -1299,6 +1299,28 @@ body.lb-locked { overflow: hidden; }
   font-size: 0.86em;
 }
 
+/* Property-vocabulary chips. These are the fields the interaction analyzer
+   writes, so they carry the interaction colour rather than the code-span
+   purple used elsewhere. */
+.taskfam-props {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.7rem 0 !important;
+}
+
+.taskfam-props code {
+  background: rgba(69, 181, 165, 0.13);
+  color: var(--c-interaction-dark);
+  border: 1px solid rgba(69, 181, 165, 0.3);
+  padding: 0.18em 0.5em;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.taskfam p + p { margin-top: 0.6rem !important; }
+
 .taskfam-eg {
   margin-top: 0.75rem !important;
   padding-top: 0.7rem;
