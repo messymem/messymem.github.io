@@ -3,9 +3,7 @@
 Static project page for *MessyMem: Learning-from-Doing Memory for Mobile Manipulation*.
 
 Built on the [Nerfies project page template](https://github.com/nerfies/nerfies.github.io) (Bulma +
-bulma-carousel + FontAwesome) — the same template behind
-[HoMeR](https://homer-manip.github.io/), [LMP](https://collab.me.vt.edu/lmp/), and
-[CHORUS](https://chorus-model.github.io/). No build step, no dependencies: it is plain HTML/CSS/JS.
+bulma-carousel + FontAwesome) — No build step, no dependencies: it is plain HTML/CSS/JS.
 
 ## View it locally
 
