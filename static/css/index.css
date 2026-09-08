@@ -530,7 +530,7 @@ section[id] {
   gap: 1.25rem;
 }
 
-.method-grid { grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); }
+.method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .setup-grid { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin-top: 2rem; }
 .findings-grid { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
 
@@ -550,10 +550,40 @@ section[id] {
   transform: translateY(-2px);
 }
 
-.method-card { border-top: 4px solid var(--c-rule); }
+.method-card { border-top: 4px solid var(--c-rule); position: relative; }
 .method-card.is-global { border-top-color: var(--c-global); }
 .method-card.is-interaction { border-top-color: var(--c-interaction); }
 .method-card.is-fine { border-top-color: var(--c-fine); }
+
+/* The retriever/planner consumes all three components rather than being one of
+   them, so it sits as a full-width base under the other three and takes a top
+   bar blending the three property colours. Its two paragraphs run side by side
+   so the wide card doesn't become one very long measure. */
+.method-card.is-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1.75rem;
+  align-content: start;
+  border-top-color: transparent;
+}
+
+.method-card.is-wide > .title { grid-column: 1 / -1; }
+.method-card.is-wide p + p { margin-top: 0; }
+
+.method-card.is-wide::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -1px;
+  right: -1px;
+  height: 4px;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(90deg,
+    var(--c-global) 0%, var(--c-global) 28%,
+    var(--c-interaction) 45%, var(--c-interaction) 58%,
+    var(--c-fine) 76%, var(--c-fine) 100%);
+}
 
 .method-card p,
 .finding-card p,
@@ -937,6 +967,10 @@ section[id] {
 }
 
 /* --- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 1023px) {
+  .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media screen and (max-width: 900px) {
   .stat-grid { grid-template-columns: 1fr; }
   .chart { grid-template-columns: 1fr; gap: 0; }
@@ -953,6 +987,9 @@ section[id] {
     min-width: 7.5rem;
   }
   .scenario-head { flex-direction: column; align-items: flex-start; }
+  .method-grid { grid-template-columns: minmax(0, 1fr); }
+  .method-card.is-wide { grid-template-columns: minmax(0, 1fr); }
+  .method-card.is-wide p + p { margin-top: 0.75rem; }
 }
 
 /* --- Motion preferences --------------------------------------------------- */
