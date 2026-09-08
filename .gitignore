@@ -11,3 +11,7 @@ node_modules/
 # Large source videos staged for conversion. Only the compressed results in
 # static/videos/ belong in the repo -- never the multi-hundred-MB originals.
 /media_src/
+
+# Full-resolution simulation stills. The page serves the optimized .jpg copies
+# beside them; keep the originals locally without committing tens of MB.
+/static/images/simulation/*.png

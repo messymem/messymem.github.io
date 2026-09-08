@@ -4,21 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ==================== TODO: EDIT SITE METADATA ==================== -->
   <title>MessyMem: Learning-from-Doing Memory for Mobile Manipulation</title>
-  <meta name="description" content="MessyMem is a memory system for long-horizon and adaptive mobile manipulation, building an interaction-grounded 3D scene graph with linked keyframes.">
+  <meta name="description" content="MessyMem is a persistent memory system for mobile manipulation: a spatially grounded 3D scene graph augmented with interaction-derived properties and linked keyframes. CoRL 2026.">
 
-  <!-- Social / link previews (fill in the absolute URL once the site is deployed) -->
+  <!-- TODO: fill in the absolute URL once the site is deployed. -->
   <meta property="og:title" content="MessyMem: Learning-from-Doing Memory for Mobile Manipulation">
-  <meta property="og:description" content="A memory system for long-horizon and adaptive mobile manipulation. CoRL 2026.">
+  <meta property="og:description" content="A persistent memory system that lets mobile manipulators learn from experience and reuse it across tasks. 80.0% task progress on a 25-task, 3-hour evaluation. CoRL 2026.">
   <meta property="og:url" content="https://TODO-your-org.github.io/messymem/">
-  <meta property="og:image" content="https://TODO-your-org.github.io/messymem/static/images/teaser.png">
+  <meta property="og:image" content="https://TODO-your-org.github.io/messymem/static/images/figures/fig1_teaser.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MessyMem: Learning-from-Doing Memory for Mobile Manipulation">
-  <meta name="twitter:description" content="A memory system for long-horizon and adaptive mobile manipulation. CoRL 2026.">
-  <meta name="twitter:image" content="https://TODO-your-org.github.io/messymem/static/images/teaser.png">
-  <!-- ================================================================== -->
+  <meta name="twitter:description" content="A persistent memory system that lets mobile manipulators learn from experience and reuse it across tasks. CoRL 2026.">
+  <meta name="twitter:image" content="https://TODO-your-org.github.io/messymem/static/images/figures/fig1_teaser.jpg">
 
   <link rel="icon" href="./static/images/favicon.svg">
 
@@ -39,8 +37,9 @@
 <body>
 
 <!-- ============================= NAVBAR ============================= -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-spaced site-nav" role="navigation" aria-label="section navigation">
   <div class="navbar-brand">
+    <a class="navbar-item nav-brand-text" href="#top"><span class="messymem">MessyMem</span></a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -51,15 +50,17 @@
     <div class="navbar-end">
       <a class="navbar-item" href="#abstract">Abstract</a>
       <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#setup">Setup</a>
+      <a class="navbar-item" href="#simulation">Simulation</a>
+      <a class="navbar-item" href="#results">Results</a>
       <a class="navbar-item" href="#real-robot">Real Robot</a>
-      <a class="navbar-item" href="#experiments">Experiments</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
     </div>
   </div>
 </nav>
 
 <!-- ============================== HERO ============================== -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -70,64 +71,61 @@
             Learning-from-Doing Memory for Mobile Manipulation
           </h1>
 
-          <!-- TODO: replace placeholder authors. Keep the <sup> markers in sync with the affiliations below. -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://anuvabanwasi.github.io/" target="_blank">Anuva Banwasi</a><sup></sup>,</span>
+              <a href="https://anuvabanwasi.github.io/" target="_blank">Anuva Banwasi</a>,</span>
             <span class="author-block">
-              <a href="https://william-muckelroy-iii.com/" target="_blank">William Muckelroy III</a><sup></sup>,</span>
+              <a href="https://william-muckelroy-iii.com/" target="_blank">William Muckelroy III</a>,</span>
             <span class="author-block">
-              <a href="https://priyasundaresan.github.io/" target="_blank">Priya Sundaresan</a><sup></sup>,</span>
+              <a href="https://priyasundaresan.github.io/" target="_blank">Priya Sundaresan</a>,</span>
             <span class="author-block">
-              <a href="https://lfzhao.com/" target="_blank">Linfeng Zhao</a><sup></sup>,</span>
+              <a href="https://lfzhao.com/" target="_blank">Linfeng Zhao</a>,</span>
             <span class="author-block">
-              <a href="https://web.stanford.edu/~bohg/" target="_blank">Jeannette Bohg</a><sup></sup>,</span>
+              <a href="https://web.stanford.edu/~bohg/" target="_blank">Jeannette Bohg</a>,</span>
             <span class="author-block">
-              <a href="https://cherieho.com/" target="_blank">Cherie Ho</a><sup></sup></span>
+              <a href="https://cherieho.com/" target="_blank">Cherie Ho</a></span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup></sup>Stanford University</span>
-            <!-- <span class="author-block"><sup>2</sup>TODO: Second Affiliation</span> -->
-          </div>
-          <div class="is-size-6 publication-authors">
-            <span class="author-block"><sup>*</sup>TODO: equal contribution / corresponding author notes</span>
+            <span class="author-block">Stanford University</span>
           </div>
 
-          <div class="is-size-5 publication-venue mt-3" style="margin: 0.75rem auto 0;">
+          <div class="is-size-5 publication-venue" style="margin: 0.75rem auto 0;">
             Conference on Robot Learning (CoRL) 2026
           </div>
 
-          <!-- ---------------------- LINK BUTTONS ----------------------
-               Delete any button you don't have yet rather than leaving a dead link. -->
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="./static/pdfs/messymem_corl2026.pdf" target="_blank"
+                <a href="./static/pdfs/_Public_release__MessyMem.pdf" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
+              <!-- Pending links: swap `is-pending` + aria-disabled for a real href when each goes live. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/TODO" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-dark is-pending"
+                   aria-disabled="true" title="Coming soon">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
+                  <span class="pending-tag">soon</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/TODO/messymem" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-dark is-pending"
+                   aria-disabled="true" title="Coming soon">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
+                  <span class="pending-tag">soon</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=TODO" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="external-link button is-normal is-rounded is-dark is-pending"
+                   aria-disabled="true" title="Coming soon">
                   <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Video</span>
+                  <span class="pending-tag">soon</span>
                 </a>
               </span>
             </div>
@@ -143,21 +141,18 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- Splash video: MessyMem_Video_V2.mov, transcoded to 720p H.264, audio stripped.
-           Controls are on because it runs 3:16 -- drop `controls` if you'd rather it read as a
-           silent background loop. -->
       <video id="teaser" class="teaser-video" autoplay muted loop playsinline controls
              preload="metadata" poster="./static/images/teaser_poster.jpg">
         <source src="./static/videos/teaser.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="messymem">MessyMem</span> is a memory system for long-horizon and adaptive mobile
-        manipulation. It builds a 3D scene graph that is
+        <span class="messymem">MessyMem</span> is a persistent memory system for mobile manipulation. It
+        maintains a 3D scene graph that is
         <span class="p-global">globally queryable &amp; spatially grounded</span>,
         <span class="p-interaction">updated through interactions</span>, and
-        <span class="p-fine">fine-grained</span> via linked keyframes.
-        <br><i>TODO: replace with your Figure 1 caption.</i>
+        <span class="p-fine">fine-grained</span> via linked keyframes &mdash; so the robot reuses what it
+        has learned instead of re-exploring.
       </h2>
     </div>
   </div>
@@ -167,76 +162,99 @@
 <section class="section" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-four-fifths reveal">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Mobile manipulators deployed at home across many rooms and many visits should improve with
-            experience: after failing to open a locked cabinet, or finding an object in a drawer, the robot
-            should use that knowledge to avoid repeated mistakes and complete future tasks more efficiently.
-            However, today's robots often treat each task as new. Currently, compact scene representations
-            omit interaction-derived knowledge, raw video buffers quickly grow to become inefficient and
-            difficult to query, and VLM planners reason at inference time without persistently updating what
-            the robot knows.
+            Mobile manipulators deployed across many rooms and visits should improve with experience:
+            after discovering that a cabinet is locked or finding an object in a drawer, the robot should
+            reuse that knowledge rather than start each task from scratch. Yet today's robots often treat
+            each task as new: compact scene representations omit interaction-derived knowledge, raw video
+            histories are difficult to query, and VLM planners reason at inference time without
+            persistently updating what the robot knows.
           </p>
           <p>
-            Memory for mobile manipulation must be <span class="p-global">spatially grounded and
-            queryable</span>, <span class="p-interaction">updatable from interaction</span>, and
-            <span class="p-fine">fine-grained</span> enough to surface visual context that a text summary
-            would lose.
-            We present <span class="messymem">MessyMem</span>, a memory system that enables mobile
-            manipulators to learn from doing by building a compact 3D scene graph and associating it with
-            learned <span class="p-interaction">interaction-derived properties</span> and
-            <span class="p-fine">keyframes</span> for visual detail. A task planner can use
-            this memory to avoid repeated failures, reuse object locations, and recover visual context for
-            long-horizon decisions. We evaluate <span class="messymem">MessyMem</span> across multiple tasks
-            in simulation and on a real mobile manipulator, showing that persistent interaction-grounded
-            memory significantly improves long-horizon task success over representative baselines.
+            We present <span class="messymem">MessyMem</span>, a persistent memory system that enables
+            mobile manipulators to learn from experience and reuse that knowledge across future tasks. It
+            maintains a <span class="p-global">spatially grounded 3D scene graph</span> of objects and
+            locations, augments it with <span class="p-interaction">properties and outcomes learned
+            through interaction</span>, and links <span class="p-fine">visual observations for
+            fine-grained recall</span>. We evaluate <span class="messymem">MessyMem</span> in simulation
+            and on a real mobile manipulator. In a continuous 25-task simulation spanning over 3 hours,
+            <span class="messymem">MessyMem</span> achieves <b>80.0% task progress</b>, outperforming the
+            strongest ablation by 14.8 percentage points and the strongest external baseline by 28.9
+            points, while retrieving task-relevant evidence from thousands of stored keyframes and over an
+            hour into the past.
           </p>
         </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered reveal">
+      <div class="column is-four-fifths">
+        <figure class="figure-block">
+          <img src="./static/images/figures/fig1_teaser.jpg"
+               alt="MessyMem builds memory while exploring to find scissors, then reuses it on later tasks to locate John's cup and avoid a locked drawer">
+          <figcaption class="figure-caption">
+            <b>Figure 1.</b> <span class="messymem">MessyMem</span> maintains a 3D scene graph with
+            interaction-derived properties and linked keyframes. <b>(Left)</b> The robot builds memory
+            while exploring to <i>Find me scissors</i>. <b>(Right)</b> On later open-vocabulary tasks it
+            reuses memory rather than re-exploring, retrieving fine-grained visual evidence to locate
+            <i>John's cup</i> and interaction-derived properties to avoid the locked drawer.
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ====================== THREE MEMORY PROPERTIES ====================== -->
-<section class="section" id="properties">
+<section class="section section-tint" id="properties">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Three Properties of Robot Memory</h2>
-    <div class="columns is-centered">
+    <div class="has-text-centered reveal">
+      <h2 class="title is-3">Three Properties of Robot Memory</h2>
+      <p class="section-lead">
+        Memory for mobile manipulation has to do three things at once. Prior work delivers them
+        separately; <span class="messymem">MessyMem</span> combines all three in one persistent store.
+      </p>
+    </div>
+    <div class="columns is-centered mt-5">
 
-      <div class="column">
+      <div class="column reveal">
         <div class="property-card is-global content has-text-centered">
           <span class="property-num">1</span>
           <img src="./static/images/icon-spatially-queryable.png" class="property-icon" alt="Spatially queryable: a map pin anchored to a ground plane">
           <h3 class="title is-5 property-title">Globally Queryable &amp; Spatially Grounded</h3>
           <p>
-            A compact 3D scene graph indexes observed objects with world-frame positions, so a query returns
-            not only <i><b>what</b></i> the robot has seen but <i><b>where</b></i> to go to find it.
+            Queries must work across rooms, floors, and sessions, in a form compact enough to actually
+            search. Each query returns not only <i>what</i> the robot has seen but <i>where</i> to go to
+            find it, so the planner can pick a visit order and navigate directly instead of re-exploring.
           </p>
         </div>
       </div>
 
-      <div class="column">
+      <div class="column reveal">
         <div class="property-card is-interaction content has-text-centered">
           <span class="property-num">2</span>
           <img src="./static/images/icon-updatable-from-interaction.png" class="property-icon" alt="Updatable from interaction: a mobile manipulator opening a drawer">
           <h3 class="title is-5 property-title">Updatable from Interactions</h3>
           <p>
-            A VLM interaction analyzer reads a collage of each action window and writes back properties that
-            passive observation cannot reveal &mdash; <span class="p-interaction">locked, empty, heavy, openable, contents</span>.
+            Weight, emptiness, articulation, locked-vs-unlocked &mdash; many properties cannot be inferred
+            from passive observation and must be learned by acting. Memory has to record what each
+            interaction reveals, including why an attempt failed.
           </p>
         </div>
       </div>
 
-      <div class="column">
+      <div class="column reveal">
         <div class="property-card is-fine content has-text-centered">
           <span class="property-num">3</span>
           <img src="./static/images/icon-fine-grained.png" class="property-icon" alt="Fine-grained: a cabinet interior with keyframe focus brackets">
           <h3 class="title is-5 property-title">Fine-Grained</h3>
           <p>
-            A keyframe saver <i><b>links</b></i> selected images to scene-graph nodes, so the planner can recover visual
-            detail a text summary would lose.
+            Text summaries alone are often insufficient. The robot must retrieve visual context on demand
+            &mdash; the exact shelf where coffee was last seen, the name printed on a particular cup, how
+            cluttered one cabinet is compared to another.
           </p>
         </div>
       </div>
@@ -249,49 +267,555 @@
 <section class="section" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-four-fifths reveal">
         <h2 class="title is-3">Method Overview</h2>
+        <p class="section-lead">
+          The robot incrementally builds memory from RGB-D observations and manipulation outcomes.
+          Execution runs in a closed loop: retrieve task-relevant memory, plan and execute a primitive,
+          analyze its outcome, update memory, and replan against the updated state.
+        </p>
       </div>
     </div>
-    <div class="content has-text-centered">
-      <!-- Method walkthrough: messymem_video.mp4 trimmed to 1:12-2:46, 720p H.264, audio stripped.
-           If you'd rather show the static Figure 2 here (or above the video), export it to
-           static/images/method.png and add:
-           <img src="./static/images/method.png" alt="MessyMem approach overview"> -->
+
+    <div class="reveal">
+      <figure class="figure-block">
+        <img src="./static/images/figures/fig2_method.jpg"
+             alt="MessyMem architecture: a scene graph builder, keyframe saver and interaction analyzer update memory, while a memory retriever and VLM planner consume it">
+        <figcaption class="figure-caption">
+          <b>Figure 2.</b> <b>(Left)</b> A <span class="p-global">scene graph builder</span> incrementally
+          maintains a persistent 3D graph of observed objects and their locations, while a
+          <span class="p-fine">keyframe saver</span> links selected visual observations to the
+          corresponding entries. After manipulation, a VLM-based
+          <span class="p-interaction">interaction analyzer</span> reasons over the interaction collage and
+          writes action-revealed properties, contents, and execution outcomes back to the scene graph.
+          <b>(Right)</b> For each planning step, a memory retriever surfaces relevant structured
+          properties and linked keyframes; a VLM planner combines them with the current observation to
+          select the next primitive.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Closed execution loop -->
+    <div class="reveal mt-6">
+      <h3 class="title is-5 has-text-centered loop-heading">The Execution Loop</h3>
+      <ol class="loop-diagram" aria-label="Closed-loop execution: retrieve, plan, execute, analyze, update">
+        <li class="loop-step is-fine"><span class="loop-index">1</span>Retrieve<em>relevant memory</em></li>
+        <li class="loop-step"><span class="loop-index">2</span>Plan<em>next primitive</em></li>
+        <li class="loop-step"><span class="loop-index">3</span>Execute<em>on the robot</em></li>
+        <li class="loop-step is-interaction"><span class="loop-index">4</span>Analyze<em>interaction window</em></li>
+        <li class="loop-step is-global"><span class="loop-index">5</span>Update<em>scene graph + keyframes</em></li>
+      </ol>
+      <p class="loop-return"><span aria-hidden="true">&#8630;</span> the next planning step retrieves against the newly updated memory</p>
+    </div>
+
+    <!-- Components -->
+    <div class="method-grid mt-6">
+
+      <article class="method-card is-global reveal">
+        <h3 class="title is-5"><span class="p-global">Scene Graph Builder</span></h3>
+        <p>
+          Each RGB-D frame is passed to <b>SAM3</b> with a scenario-specific set of category prompts.
+          Every mask is deprojected to 3D using the depth image, and same-label detections at nearby
+          positions are clustered and associated with existing entries, whose centroids update as a
+          running average. Unmatched detections initialize new nodes.
+        </p>
+        <p>
+          Each entry stores an object id (e.g. <code>drawer_3</code>), a 3D centroid for spatial
+          grounding, and a property dictionary. <b>Objects persist after leaving the camera view</b>, so
+          remembered state and visual evidence stay anchored to locations the planner can revisit.
+        </p>
+      </article>
+
+      <article class="method-card is-interaction reveal">
+        <h3 class="title is-5"><span class="p-interaction">Interaction Analyzer</span></h3>
+        <p>
+          After each manipulation primitive, a VLM converts the interaction window into structured updates
+          to the targeted node. It reasons over a <b>multi-frame collage</b> rather than a single
+          before/after pair, which exposes how the action unfolded &mdash; whether the gripper missed a
+          handle, slipped during a pull, or grasped firmly while the cabinet stayed shut.
+        </p>
+        <p>
+          It maintains a seeded property vocabulary (<code>accessible</code>, <code>pickable</code>,
+          <code>pushable</code>, <code>fullness</code>, <code>openable</code>), can add open-vocabulary
+          properties when useful, records execution outcomes and failure reasons, and refreshes fixture
+          contents. Newer evidence overwrites stale structured values, so incorrect memory can be
+          corrected.
+        </p>
+      </article>
+
+      <article class="method-card is-fine reveal">
+        <h3 class="title is-5"><span class="p-fine">Keyframe Saver</span></h3>
+        <p>
+          A bank of selected RGB observations, each linked to the scene-graph entries it describes.
+          Around every manipulation the system stores the frame before, the frame after, and the frame the
+          analyzer flags as most informative. Outside manipulation, frames are saved whenever the graph
+          registers a new object or updates an existing one.
+        </p>
+        <p>
+          Each keyframe keeps a full-resolution image plus a thumbnail, with metadata for timestamp,
+          camera, trigger, originating action, robot pose, and linked nodes. Analyzer-written labels
+          (e.g. <code>open drawer interior</code>) give retrieval cues for contents that have no
+          scene-graph object of their own. Blank, blurry and near-duplicate frames are filtered out.
+        </p>
+      </article>
+
+      <article class="method-card reveal">
+        <h3 class="title is-5">Memory Retriever &amp; VLM Planner</h3>
+        <p>
+          The retriever pools candidates from three sources: keyframes linked to scene-graph entries,
+          keyframes whose analyzer labels match content in the task, and recent interaction frames for
+          short-term context. Per-source caps stop recently seen entities from flooding the pool.
+        </p>
+        <p>
+          Retrieval then runs in <b>two stages</b>. A text-only pass gives the VLM a compact catalog of
+          candidate metadata and the scene-graph summary, and it shortlists frames likely to help. A
+          multimodal pass then inspects thumbnails of that shortlist and picks a small, non-redundant set.
+          Structured memory narrows the field first; visual reasoning is spent only on the finalists.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- Walkthrough video -->
+    <div class="content has-text-centered mt-6 reveal">
+      <h3 class="title is-4">Memory in Action</h3>
       <video class="content-video" controls playsinline preload="metadata"
              poster="./static/images/overview_poster.jpg">
         <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="has-text-justified mt-4">
-        <b>TODO: Figure 2 caption.</b> A <span class="p-global">scene graph builder</span> maintains a
-        compact 3D graph of observed objects from RGBD observations, keeping memory
-        <span class="p-global">globally queryable and spatially grounded</span>; a
-        <span class="p-fine">keyframe saver</span> links saved images to each object node, supporting
-        <span class="p-fine">fine-grained</span> retrieval; a VLM-based
-        <span class="p-interaction">interaction analyzer</span> infers action-revealed properties from a
-        collage generated over each manipulator action, keeping memory
-        <span class="p-interaction">updatable from interactions</span>. For a new task, a
-        <b>relevant memory retriever</b> pulls node information and keyframes, and a <b>VLM planner</b> uses
-        both to select the next primitive.
+      <p class="caption">
+        A walkthrough of the three memory properties, followed by the robot building and querying memory
+        during a task.
       </p>
     </div>
 
-    <!-- Optional per-component subsections. Delete what you don't need. -->
-    <div class="columns is-centered">
-      <div class="column is-full content">
-        <h3 class="title is-4"><span class="p-global">Scene Graph Builder</span></h3>
-        <p>TODO: describe segmentation, deprojection, clustering, and instance matching.</p>
-
-        <h3 class="title is-4"><span class="p-interaction">Interaction Analyzer</span></h3>
-        <p>TODO: describe the action-window collage and the structured summary written back to the graph.</p>
-
-        <h3 class="title is-4"><span class="p-fine">Keyframe Saver</span></h3>
-        <p>TODO: describe keyframe selection and how frames are linked to nodes.</p>
-
-        <h3 class="title is-4">Memory Retriever &amp; VLM Planner</h3>
-        <p>TODO: describe retrieval and iterative re-planning.</p>
+    <!-- Analyzer + retriever detail figures -->
+    <div class="columns is-centered mt-6">
+      <div class="column is-half reveal">
+        <figure class="figure-block is-inset">
+          <img src="./static/images/figures/fig4_interaction_analyzer.jpg"
+               alt="Interaction collage distinguishing a failed grasp from a locked cabinet">
+          <figcaption class="figure-caption">
+            <b>Figure 4.</b> Reasoning over the collage lets the analyzer tell a <b>failed grasp</b>
+            (Case 1, the robot misses the handle) from a <b>locked cabinet</b> (Case 2, the robot grasps
+            and pulls but nothing moves) &mdash; two outcomes that look nearly identical in a single
+            after-frame, but call for opposite planner responses: retry versus move on.
+          </figcaption>
+        </figure>
       </div>
+      <div class="column is-half reveal">
+        <figure class="figure-block is-inset">
+          <img src="./static/images/figures/fig5_retriever.jpg"
+               alt="The retriever selects keyframes showing an orange cup and a green cup to identify John's cup">
+          <figcaption class="figure-caption">
+            <b>Figure 5.</b> Given the task <i>go to John's cup</i>, the retriever surfaces frames showing
+            the orange cup on the left drawer and the green cup on the right, tagging each with a short
+            reason. That lets the planner identify the orange cup labelled &ldquo;John&rdquo; &mdash; an
+            instance-specific cue the structured scene graph never stored.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================= EXPERIMENTAL SETUP ======================= -->
+<section class="section section-tint" id="setup">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths reveal">
+        <h2 class="title is-3">Experimental Setup</h2>
+        <p class="section-lead">
+          Every method shares the same planner, perception stack, and action primitives, so differences
+          come from the memory representation alone.
+        </p>
+      </div>
+    </div>
+
+    <div class="setup-grid reveal">
+      <div class="setup-card">
+        <h3 class="setup-title">Initialization</h3>
+        <p>Each trial starts with a predefined trajectory that observes fixture locations without revealing
+           their contents. Contents become observable only after interaction.</p>
+      </div>
+      <div class="setup-card">
+        <h3 class="setup-title">Task Sequence</h3>
+        <p>Instructions are issued one at a time, each after the previous completes or fails &mdash; so
+           information gathered earlier has to persist across decisions.</p>
+      </div>
+      <div class="setup-card">
+        <h3 class="setup-title">Primitives</h3>
+        <p>All methods use identical navigation, fixture-interaction and manipulation primitives, with a
+           fixed budget of twelve planner calls per simulated task.</p>
+      </div>
+      <div class="setup-card">
+        <h3 class="setup-title">Metrics</h3>
+        <p><b>Task progress</b> from task-specific success criteria, plus the number of actions used.
+           Short scenarios run 50 trials per method, reported with 95% confidence intervals.</p>
+      </div>
+    </div>
+
+    <h3 class="title is-4 has-text-centered mt-6 reveal">Compared Methods</h3>
+    <p class="section-lead has-text-centered reveal">
+      Three ablations strip one memory component at a time; three external baselines represent
+      alternative memory paradigms.
+    </p>
+
+    <div class="method-legend reveal">
+      <div class="legend-group">
+        <span class="legend-tag">Ours &amp; ablations</span>
+        <ul>
+          <li><span class="swatch lvl-3"></span><b>MessyMem (SG + IA + KF)</b> &mdash; the full system:
+            persistent scene graph, interaction-analyzer updates, and linked keyframes.</li>
+          <li><span class="swatch lvl-2"></span><b>SG + IA</b> &mdash; no keyframes. Tests whether
+            structured, interaction-derived state suffices without visual history.</li>
+          <li><span class="swatch lvl-2"></span><b>SG + KF</b> &mdash; no interaction analyzer. Keeps
+            positions and keyframes but stores nothing learned from acting.</li>
+          <li><span class="swatch lvl-1"></span><b>SG</b> &mdash; labels and positions only. The limit of a
+            queryable spatial representation on its own.</li>
+        </ul>
+      </div>
+      <div class="legend-group">
+        <span class="legend-tag">External baselines</span>
+        <ul>
+          <li><span class="swatch lvl-ext"></span><b>RoboEXP</b> &mdash; its Action-Conditioned Scene Graph
+            adapted to our execution stack: predefined relational structure, no fine-grained appearance.</li>
+          <li><span class="swatch lvl-ext"></span><b>MemER-style</b> &mdash; episodic visual memory, where a
+            VLM selects salient observations clustered into representative keyframes, without persistent
+            scene-graph indexing.</li>
+          <li><span class="swatch lvl-ext"></span><b>MemER + Fixtures</b> &mdash; the same, additionally
+            given identities and positions of visible and out-of-view fixtures, to separate episodic-memory
+            limits from basic navigation grounding.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SIMULATION ============================ -->
+<section class="section" id="simulation">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths reveal">
+        <h2 class="title is-3">Simulation</h2>
+        <p class="section-lead">
+          Scenarios are built in the MuJoCo-based <b>RoboCasa365</b> simulator for household mobile
+          manipulation. The simulated robot is a Franka Panda arm on an Omron mobile base; RGB-D
+          observations come from third-person cameras for scene-graph construction, with the wrist camera
+          feeding interaction analysis and keyframes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Scenario 1 -->
+    <div class="scenario-card reveal">
+      <div class="scenario-head">
+        <h3 class="title is-4">Locked-and-Unlocked Cabinets</h3>
+        <div class="scenario-badges">
+          <span class="badge is-global">Globally queryable</span>
+          <span class="badge is-interaction">Updatable from interactions</span>
+        </div>
+      </div>
+      <p>
+        Among three cabinets, one is locked &mdash; but its status is unknown before interaction. The robot
+        is first told <i>&ldquo;look into the upper cabinets and find the banana&rdquo;</i>; its first
+        attempt on <code>cab_1</code> fails because that cabinet is locked, and it finds the banana in
+        <code>cab_2</code>. Asked next to <i>find the ketchup</i>, success requires skipping both the
+        locked cabinet and the ketchup-free one, and navigating to the still-unexplored
+        <code>cab_3</code>. Re-attempting the locked cabinet counts as a failure.
+      </p>
+      <figure class="figure-block is-inset">
+        <img src="./static/images/figures/fig6_locked_cabinets.jpg"
+             alt="MessyMem records the first cabinet as locked and skips it on the next task, while SG+KF retries it and fails">
+        <figcaption class="figure-caption">
+          <b>Figure 6.</b> By reasoning over the interaction collage,
+          <span class="messymem">MessyMem</span> records the first cabinet as locked and stores it in the
+          scene graph. On the next task it uses that memory, together with the remembered contents of the
+          second cabinet, to skip both. <b>SG + KF</b> re-attempts the locked cabinet and fails.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Scenario 2 -->
+    <div class="scenario-card reveal">
+      <div class="scenario-head">
+        <h3 class="title is-4">Clutter-Aware Pick</h3>
+        <div class="scenario-badges">
+          <span class="badge is-global">Globally queryable</span>
+          <span class="badge is-interaction">Updatable from interactions</span>
+          <span class="badge is-fine">Fine-grained</span>
+        </div>
+      </div>
+      <p>
+        Two cabinets both contain a ketchup bottle. In one it sits alone with clear side access; in the
+        other it is wedged between tightly-clustered items. Crucially the cluttered cabinet holds
+        <i>fewer</i> items overall, so raw object counts are anti-correlated with accessibility. After
+        finding the mustard seeds memory with interior keyframes, the robot is asked to pick up the
+        ketchup &mdash; ending up in front of the wrong, already-open cabinet. Choosing correctly means
+        comparing the two interiors from stored keyframes, not counting labels.
+      </p>
+      <figure class="figure-block is-inset">
+        <img src="./static/images/figures/fig7_clutter_pick.jpg"
+             alt="MessyMem queries keyframes to pick from the less cluttered cabinet, while SG+IA relies on object counts and picks the cluttered one">
+        <figcaption class="figure-caption">
+          <b>Figure 7.</b> The planner queries relevant keyframes to judge which cabinet is more accessible
+          and less likely to disturb nearby objects. <b>SG + IA</b> has only the object count to go on
+          &mdash; an insufficient signal &mdash; and reaches for the ketchup buried among condiments.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Scenario 3 -->
+    <div class="scenario-card reveal">
+      <div class="scenario-head">
+        <h3 class="title is-4">Long Horizon &mdash; 25 tasks, 3+ hours</h3>
+        <div class="scenario-badges">
+          <span class="badge is-global">Globally queryable</span>
+          <span class="badge is-interaction">Updatable from interactions</span>
+          <span class="badge is-fine">Fine-grained</span>
+        </div>
+      </div>
+      <p>
+        A continuous sequence of 25 household tasks in a 10-cabinet kitchen holding more than 60 objects
+        and fixtures, executed for over three hours <b>without resetting memory</b>. The sequence spans
+        four task families &mdash; finding, matching, manipulation, and memory queries &mdash; and requires
+        recalling observations from much earlier in the run, distinguishing visually similar instances,
+        reasoning about where household objects belong, and reusing what prior manipulation revealed.
+        Examples include matching a cup to one seen earlier, identifying a reusable bottle among similar
+        variants, recalling which objects were stored together, and finding a mug put away earlier.
+      </p>
+      <figure class="figure-block is-inset">
+        <img src="./static/images/simulation/long_horizon_environment_snapshot.jpg"
+             alt="Panorama of the ten-cabinet long-horizon kitchen with an inset showing one cabinet interior">
+        <figcaption class="figure-caption">
+          The long-horizon kitchen: ten cabinets and 60+ objects, with an inset of a single cabinet
+          interior. Memory accumulates across all 25 tasks without a reset.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Rollout slots: drop mp4s at these paths and they light up, no HTML edit needed. -->
+    <h3 class="title is-4 has-text-centered mt-6 reveal">Simulated Rollouts</h3>
+    <p class="section-lead has-text-centered reveal">
+      <i>Rollout videos are being prepared &mdash; the stills below show the RoboCasa environments.</i>
+    </p>
+    <div class="columns is-centered reveal">
+      <div class="column">
+        <video class="content-video" autoplay muted loop playsinline preload="metadata"
+               poster="./static/images/simulation/robocasa_environment_example.jpg">
+          <source src="./static/videos/sim_locked_cabinets.mp4" type="video/mp4">
+        </video>
+        <p class="caption has-text-centered">Locked-and-Unlocked Cabinets</p>
+      </div>
+      <div class="column">
+        <video class="content-video" autoplay muted loop playsinline preload="metadata"
+               poster="./static/images/simulation/robocasa_environment_example2.jpg">
+          <source src="./static/videos/sim_clutter_pick.mp4" type="video/mp4">
+        </video>
+        <p class="caption has-text-centered">Clutter-Aware Pick</p>
+      </div>
+      <div class="column">
+        <video class="content-video" autoplay muted loop playsinline preload="metadata"
+               poster="./static/images/simulation/robocasa_environment_example3.jpg">
+          <source src="./static/videos/sim_long_horizon.mp4" type="video/mp4">
+        </video>
+        <p class="caption has-text-centered">Long Horizon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= RESULTS ============================= -->
+<section class="section section-tint" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths reveal">
+        <h2 class="title is-3">Results</h2>
+        <p class="section-lead">
+          <span class="messymem">MessyMem</span> achieves the highest task progress across all three
+          simulated evaluations. No single memory component suffices on its own.
+        </p>
+      </div>
+    </div>
+
+    <!-- Headline numbers -->
+    <div class="stat-grid reveal">
+      <div class="stat-tile is-hero">
+        <span class="stat-value" data-count="80.0" data-decimals="1">80.0</span><span class="stat-unit">%</span>
+        <span class="stat-label">task progress on the 25-task, 3-hour long-horizon evaluation</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-value"><span class="stat-sign">+</span><span data-count="14.8" data-decimals="1">14.8</span></span><span class="stat-unit">pp</span>
+        <span class="stat-label">over the strongest ablation (SG&nbsp;+&nbsp;IA)</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-value"><span class="stat-sign">+</span><span data-count="28.9" data-decimals="1">28.9</span></span><span class="stat-unit">pp</span>
+        <span class="stat-label">over the strongest external baseline (RoboEXP)</span>
+      </div>
+    </div>
+
+    <!-- Main chart -->
+    <div class="chart-block reveal">
+      <h3 class="title is-5 chart-title">Task Progress by Scenario</h3>
+      <p class="chart-sub">
+        Mean task progress (%) over 50 trials per method; whiskers show the 95% confidence interval.
+        Bar shade encodes how many of <span class="messymem">MessyMem</span>'s three memory components a
+        method has; external baselines are shown in grey.
+      </p>
+
+      <div class="chart-legend">
+        <span class="legend-item"><span class="swatch lvl-3"></span>All three components</span>
+        <span class="legend-item"><span class="swatch lvl-2"></span>Two components</span>
+        <span class="legend-item"><span class="swatch lvl-1"></span>One component</span>
+        <span class="legend-item"><span class="swatch lvl-ext"></span>External baseline</span>
+      </div>
+
+      <div class="chart" role="img" aria-label="Bar chart of mean task progress by method across three scenarios. MessyMem leads every scenario at 84.0, 99.0 and 80.0 percent. Full values are in the table below.">
+        <div class="chart-headrow">
+          <span class="chart-corner"></span>
+          <span class="chart-colhead">Cluttered Pick</span>
+          <span class="chart-colhead">Locked / Unlocked</span>
+          <span class="chart-colhead">25-Task Long Horizon</span>
+        </div>
+
+        <div class="chart-row is-ours">
+          <span class="chart-label"><b>MessyMem</b> <em>(Ours)</em></span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-3" style="--v:84.0"></span><span class="chart-ci" style="--lo:77.0;--hi:90.0"></span></span><span class="chart-value">84.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-3" style="--v:99.0"></span><span class="chart-ci" style="--lo:97.0;--hi:100.0"></span></span><span class="chart-value">99.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-3" style="--v:80.0"></span><span class="chart-ci" style="--lo:77.4;--hi:82.6"></span></span><span class="chart-value">80.0</span></span>
+        </div>
+
+        <div class="chart-row">
+          <span class="chart-label">SG + IA</span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:58.0"></span><span class="chart-ci" style="--lo:53.0;--hi:63.0"></span></span><span class="chart-value">58.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:88.0"></span><span class="chart-ci" style="--lo:82.0;--hi:94.0"></span></span><span class="chart-value">88.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:65.2"></span><span class="chart-ci" style="--lo:63.5;--hi:67.0"></span></span><span class="chart-value">65.2</span></span>
+        </div>
+
+        <div class="chart-row">
+          <span class="chart-label">RoboEXP</span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:53.0"></span><span class="chart-ci" style="--lo:48.0;--hi:58.0"></span></span><span class="chart-value">53.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:70.0"></span><span class="chart-ci" style="--lo:63.0;--hi:76.0"></span></span><span class="chart-value">70.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:51.1"></span><span class="chart-ci" style="--lo:49.1;--hi:53.1"></span></span><span class="chart-value">51.1</span></span>
+        </div>
+
+        <div class="chart-row">
+          <span class="chart-label">SG</span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-1" style="--v:49.0"></span><span class="chart-ci" style="--lo:45.0;--hi:53.0"></span></span><span class="chart-value">49.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-1" style="--v:50.0"></span><span class="chart-ci" style="--lo:50.0;--hi:50.0"></span></span><span class="chart-value">50.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-1" style="--v:49.1"></span><span class="chart-ci" style="--lo:47.4;--hi:51.0"></span></span><span class="chart-value">49.1</span></span>
+        </div>
+
+        <div class="chart-row">
+          <span class="chart-label">SG + KF</span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:51.0"></span><span class="chart-ci" style="--lo:44.0;--hi:58.0"></span></span><span class="chart-value">51.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:43.0"></span><span class="chart-ci" style="--lo:35.0;--hi:51.0"></span></span><span class="chart-value">43.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:47.9"></span><span class="chart-ci" style="--lo:45.5;--hi:50.4"></span></span><span class="chart-value">47.9</span></span>
+        </div>
+
+        <div class="chart-row">
+          <span class="chart-label">MemER-style</span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:0.0"></span></span><span class="chart-value">0.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:0.0"></span></span><span class="chart-value">0.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:1.8"></span><span class="chart-ci" style="--lo:1.0;--hi:2.5"></span></span><span class="chart-value">1.8</span></span>
+        </div>
+
+        <div class="chart-row">
+          <span class="chart-label">MemER + Fixtures</span>
+          <span class="chart-cell" data-scenario="Cluttered Pick"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:8.0"></span><span class="chart-ci" style="--lo:3.0;--hi:13.0"></span></span><span class="chart-value">8.0</span></span>
+          <span class="chart-cell" data-scenario="Locked / Unlocked"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:27.0"></span><span class="chart-ci" style="--lo:16.0;--hi:39.0"></span></span><span class="chart-value">27.0</span></span>
+          <span class="chart-cell" data-scenario="Long Horizon"><span class="chart-track"><span class="chart-bar lvl-ext" style="--v:0.7"></span><span class="chart-ci" style="--lo:0.3;--hi:1.2"></span></span><span class="chart-value">0.7</span></span>
+        </div>
+      </div>
+
+      <details class="table-reveal">
+        <summary>View as table (with 95% confidence intervals)</summary>
+        <div class="table-container">
+          <table class="table is-fullwidth is-hoverable results-table">
+            <caption class="sr-only">Mean task progress with 95% confidence intervals over 50 trials per method.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Method</th>
+                <th scope="col" class="has-text-centered">Cluttered Pick</th>
+                <th scope="col" class="has-text-centered">Locked / Unlocked</th>
+                <th scope="col" class="has-text-centered">25-Task Long Horizon</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="is-highlight"><th scope="row">MessyMem (Ours)</th><td class="has-text-centered"><b>84.0</b> <span class="ci">[77.0, 90.0]</span></td><td class="has-text-centered"><b>99.0</b> <span class="ci">[97.0, 100.0]</span></td><td class="has-text-centered"><b>80.0</b> <span class="ci">[77.4, 82.6]</span></td></tr>
+              <tr><th scope="row">SG + IA</th><td class="has-text-centered">58.0 <span class="ci">[53.0, 63.0]</span></td><td class="has-text-centered">88.0 <span class="ci">[82.0, 94.0]</span></td><td class="has-text-centered">65.2 <span class="ci">[63.5, 67.0]</span></td></tr>
+              <tr><th scope="row">RoboEXP</th><td class="has-text-centered">53.0 <span class="ci">[48.0, 58.0]</span></td><td class="has-text-centered">70.0 <span class="ci">[63.0, 76.0]</span></td><td class="has-text-centered">51.1 <span class="ci">[49.1, 53.1]</span></td></tr>
+              <tr><th scope="row">SG</th><td class="has-text-centered">49.0 <span class="ci">[45.0, 53.0]</span></td><td class="has-text-centered">50.0 <span class="ci">[50.0, 50.0]</span></td><td class="has-text-centered">49.1 <span class="ci">[47.4, 51.0]</span></td></tr>
+              <tr><th scope="row">SG + KF</th><td class="has-text-centered">51.0 <span class="ci">[44.0, 58.0]</span></td><td class="has-text-centered">43.0 <span class="ci">[35.0, 51.0]</span></td><td class="has-text-centered">47.9 <span class="ci">[45.5, 50.4]</span></td></tr>
+              <tr><th scope="row">MemER-style</th><td class="has-text-centered">0.0 <span class="ci">[0.0, 0.0]</span></td><td class="has-text-centered">0.0 <span class="ci">[0.0, 0.0]</span></td><td class="has-text-centered">1.8 <span class="ci">[1.0, 2.5]</span></td></tr>
+              <tr><th scope="row">MemER + Fixtures</th><td class="has-text-centered">8.0 <span class="ci">[3.0, 13.0]</span></td><td class="has-text-centered">27.0 <span class="ci">[16.0, 39.0]</span></td><td class="has-text-centered">0.7 <span class="ci">[0.3, 1.2]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
+    <!-- Findings -->
+    <div class="findings-grid mt-6">
+      <article class="finding-card is-fine reveal">
+        <h3 class="title is-5"><span class="p-fine">Fine-grained memory</span> enables instance-level reasoning</h3>
+        <p>
+          On <b>Cluttered Pick</b>, <span class="messymem">MessyMem</span> reaches <b>84%</b> against 58%
+          for SG + IA and 51% for SG + KF. Without keyframes the robot remembers <i>where</i> ketchup was
+          seen but cannot recover the visual arrangement needed to choose the less obstructed instance.
+        </p>
+      </article>
+      <article class="finding-card is-interaction reveal">
+        <h3 class="title is-5"><span class="p-interaction">Interaction-derived memory</span> captures outcomes</h3>
+        <p>
+          On <b>Locked / Unlocked</b>, <span class="messymem">MessyMem</span> reaches <b>99%</b> and
+          SG + IA 88%, against 43% for SG + KF. A saved image alone cannot distinguish a locked cabinet
+          from a failed grasp; the analyzer reasons over the whole manipulation to tell them apart.
+        </p>
+      </article>
+      <article class="finding-card reveal">
+        <h3 class="title is-5">External memory systems fall short</h3>
+        <p>
+          RoboEXP's predefined Action-Conditioned Scene Graph captures spatial structure but not
+          fine-grained appearance or richer interaction-derived state. MemER-style memory struggles in
+          mobile manipulation, where fixtures leave view and keyframes lack persistent spatial grounding
+          &mdash; supplying fixture positions lifts it from 0% only to 8% and 27%.
+        </p>
+      </article>
+    </div>
+
+    <!-- Long horizon -->
+    <div class="reveal mt-6">
+      <h3 class="title is-4 has-text-centered">Memory Remains Useful as It Grows</h3>
+      <p class="section-lead has-text-centered">
+        Over three hours of continuous operation, the current goal and scene-graph associations narrow
+        thousands of observations to a small candidate set before visual reranking &mdash; so
+        task-relevant experience stays reachable even as visual memory grows.
+      </p>
+      <div class="stat-grid is-triple">
+        <div class="stat-tile">
+          <span class="stat-value" data-count="9669" data-decimals="0">9,669</span>
+          <span class="stat-label">median keyframes accumulated</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" data-count="8.6" data-decimals="1">8.6</span><span class="stat-unit">s</span>
+          <span class="stat-label">median retrieval latency</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" data-count="62.7" data-decimals="1">62.7</span><span class="stat-unit">min</span>
+          <span class="stat-label">median lookback into the past</span>
+        </div>
+      </div>
+      <p class="note-box">
+        All six paired comparisons on the long-horizon evaluation remain significant after Holm
+        correction (<i>p</i><sub>Holm</sub> &lt; 10<sup>&minus;4</sup>). Over 3+ hours, MemER's recency
+        bias makes older evidence increasingly hard to surface, while
+        <span class="messymem">MessyMem</span> retrieves against the current goal and its scene-graph
+        associations. RoboEXP's limitation is instance-level: remembering that a cereal box is inside a
+        cabinet does not distinguish Froot Loops from a visually similar Trix box.
+      </p>
     </div>
   </div>
 </section>
@@ -300,18 +824,31 @@
 <section class="section" id="real-robot">
   <div class="container is-max-widescreen">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-four-fifths reveal">
         <h2 class="title is-3">Real Robot Results</h2>
-        <p class="content">
-          TODO: one or two sentences on the real platform (TidyBot++) and setup.
-          Rollouts are shown at Nx speed.
+        <p class="section-lead">
+          The simulation findings transfer to hardware: <span class="messymem">MessyMem</span> reaches
+          1.00 task progress in both real-world scenarios, while each ablation exposes a distinct failure
+          mode under real perception and manipulation variability.
         </p>
       </div>
     </div>
 
+    <div class="hardware-note reveal">
+      <h3 class="hardware-title">Platform</h3>
+      <p>
+        A <b>TidyBot++</b> with a 6-DoF YAM arm and holonomic mobile base. Two ZED&nbsp;2 RGB-D cameras
+        support scene-graph construction and 3D localization &mdash; a front-facing base camera and a
+        pole-mounted camera giving a higher vantage point to the VLM planner. A wrist-mounted Arducam
+        fisheye adds views for keyframe memory, and wall-mounted fiducial markers support localization.
+        Manipulation skills are dynamic movement primitives fit from a handful of teleoperated
+        demonstrations, retargeted to each object by a VLM 3D-pointing module.
+      </p>
+    </div>
+
     <!-- Carousel: one .item per sub-task. Captions match the label burned into the
          top-right corner of each clip; italics mirror the emphasis in that label. -->
-    <div class="carousel results-carousel">
+    <div class="carousel results-carousel reveal">
       <div class="item">
         <video autoplay muted loop playsinline preload="metadata">
           <source src="./static/videos/t0_coriander.mp4" type="video/mp4">
@@ -373,92 +910,161 @@
         <p class="caption">Find the <em>newly placed</em> game controller</p>
       </div>
     </div>
+
+    <!-- Office Drawer Search -->
+    <div class="scenario-card reveal mt-6">
+      <div class="scenario-head">
+        <h3 class="title is-4">Office Drawer Search</h3>
+        <div class="scenario-badges">
+          <span class="badge is-global">Globally queryable</span>
+          <span class="badge is-interaction">Updatable from interactions</span>
+          <span class="badge is-fine">Fine-grained</span>
+        </div>
+      </div>
+      <p>
+        Three office drawer units: the left is locked, the middle and right unlocked. Scissors sit in the
+        right drawer, a banana in the middle, and an orange cup labelled &ldquo;John&rdquo; on top of the
+        locked left unit. The robot receives three sequential instructions &mdash;
+        <i>&ldquo;Find me scissors&rdquo;</i>, then <i>&ldquo;Move to John's cup&rdquo;</i>, then
+        <i>&ldquo;my friend just placed a gaming controller into one of the unlocked drawers, help me find
+        it&rdquo;</i>. Across them it must remember which drawer failed to open, what contents it already
+        observed, and which locations remain plausible.
+      </p>
+      <p>
+        <span class="messymem">MessyMem</span> is the only method to complete all three goals, at
+        <b>1.00</b> overall progress in <b>10.8 steps</b>. Reusing the discovered lock status rather than
+        retrying an infeasible interaction finishes the first goal in 6.4 steps against 7.4 for SG + KF
+        and 9.4 for SG. The second goal needs fine-grained detail absent from the scene graph:
+        <span class="messymem">MessyMem</span> reaches 1.00 where SG + IA reaches 0.60.
+      </p>
+
+      <div class="table-container mt-4">
+        <table class="table is-fullwidth is-hoverable results-table">
+          <caption class="sr-only">Per-task breakdown of the Office Drawer Search scenario: task progress and executed steps for each sequential goal.</caption>
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">Method</th>
+              <th scope="col" colspan="2" class="has-text-centered">1: &ldquo;Find Scissors&rdquo;</th>
+              <th scope="col" colspan="2" class="has-text-centered">2: &ldquo;Move to John's cup&rdquo;</th>
+              <th scope="col" colspan="2" class="has-text-centered">3: &ldquo;Find placed controller&rdquo;</th>
+              <th scope="col" colspan="2" class="has-text-centered is-overall">Overall</th>
+            </tr>
+            <tr>
+              <th scope="col" class="has-text-centered sub">Prog. &uarr;</th><th scope="col" class="has-text-centered sub">Steps &darr;</th>
+              <th scope="col" class="has-text-centered sub">Prog. &uarr;</th><th scope="col" class="has-text-centered sub">Steps &darr;</th>
+              <th scope="col" class="has-text-centered sub">Prog. &uarr;</th><th scope="col" class="has-text-centered sub">Steps &darr;</th>
+              <th scope="col" class="has-text-centered sub is-overall">Prog. &uarr;</th><th scope="col" class="has-text-centered sub is-overall">Steps &darr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="is-highlight"><th scope="row">MessyMem (Ours)</th>
+              <td class="has-text-centered"><b>1.00</b></td><td class="has-text-centered">6.4</td>
+              <td class="has-text-centered"><b>1.00</b></td><td class="has-text-centered">1.2</td>
+              <td class="has-text-centered"><b>1.00</b></td><td class="has-text-centered">3.2</td>
+              <td class="has-text-centered is-overall"><b>1.00</b></td><td class="has-text-centered is-overall"><b>10.8</b></td></tr>
+            <tr><th scope="row">SG + IA</th>
+              <td class="has-text-centered">1.00</td><td class="has-text-centered">6.6</td>
+              <td class="has-text-centered">0.60</td><td class="has-text-centered">1.4</td>
+              <td class="has-text-centered">1.00</td><td class="has-text-centered">3.0</td>
+              <td class="has-text-centered is-overall">0.87</td><td class="has-text-centered is-overall">11.0</td></tr>
+            <tr><th scope="row">SG + KF</th>
+              <td class="has-text-centered">0.80</td><td class="has-text-centered">7.4</td>
+              <td class="has-text-centered">0.60</td><td class="has-text-centered">3.6</td>
+              <td class="has-text-centered">0.40</td><td class="has-text-centered">6.0</td>
+              <td class="has-text-centered is-overall">0.60</td><td class="has-text-centered is-overall">17.0</td></tr>
+            <tr><th scope="row">SG</th>
+              <td class="has-text-centered">0.00</td><td class="has-text-centered">9.4</td>
+              <td class="has-text-centered">0.20</td><td class="has-text-centered">1.0</td>
+              <td class="has-text-centered">1.00</td><td class="has-text-centered">5.0</td>
+              <td class="has-text-centered is-overall">0.40</td><td class="has-text-centered is-overall">15.4</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sock Pairing -->
+    <div class="scenario-card reveal">
+      <div class="scenario-head">
+        <h3 class="title is-4">Sock Pairing</h3>
+        <div class="scenario-badges">
+          <span class="badge is-global">Globally queryable</span>
+          <span class="badge is-interaction">Updatable from interactions</span>
+          <span class="badge is-fine">Fine-grained</span>
+        </div>
+      </div>
+      <p>
+        Two sock-filled drawers and one unpaired sock on a chair. The robot inspects both drawers, then
+        places the loose sock into the drawer holding its match. Because candidates can share coarse
+        attributes like colour, success depends on recalling fine-grained appearance &mdash; pattern as
+        well as colour &mdash; while keeping the spatial association between that visual memory and its
+        drawer. The distinguishing attribute and matching drawer are randomized between trials, so the
+        answer cannot be memorized.
+      </p>
+
+      <div class="chart-block is-compact">
+        <div class="chart is-single" role="img" aria-label="Sock pairing task progress: MessyMem 1.00, SG plus IA 0.67, SG plus KF 0.67, SG 0.50.">
+          <div class="chart-row is-ours">
+            <span class="chart-label"><b>MessyMem</b> <em>(Ours)</em></span>
+            <span class="chart-cell"><span class="chart-track"><span class="chart-bar lvl-3" style="--v:100"></span></span><span class="chart-value">1.00</span></span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">SG + IA</span>
+            <span class="chart-cell"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:67"></span></span><span class="chart-value">0.67</span></span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">SG + KF</span>
+            <span class="chart-cell"><span class="chart-track"><span class="chart-bar lvl-2" style="--v:67"></span></span><span class="chart-value">0.67</span></span>
+          </div>
+          <div class="chart-row">
+            <span class="chart-label">SG</span>
+            <span class="chart-cell"><span class="chart-track"><span class="chart-bar lvl-1" style="--v:50"></span></span><span class="chart-value">0.50</span></span>
+          </div>
+        </div>
+        <p class="chart-sub has-text-centered">Task progress on Sock Pairing.</p>
+      </div>
+
+      <figure class="figure-block is-inset">
+        <img src="./static/images/figures/fig3_sock_matching.jpg"
+             alt="MessyMem retrieves drawer-interior keyframes to match the loose sock, while SG+IA selects the wrong drawer">
+        <figcaption class="figure-caption">
+          <b>Figure 3.</b> During inspection, <span class="messymem">MessyMem</span> links keyframes of the
+          left and right drawer interiors to its scene graph. Asked to match the loose sock, the planner
+          retrieves those observations, compares them against the target, and returns to the correct
+          drawer. Without keyframes, <b>SG + IA</b> cannot recall the needed visual detail and picks the
+          wrong drawer.
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- ========================= SIMULATION ========================= -->
-<section class="section" id="simulation">
-  <div class="container is-max-widescreen">
+<!-- =========================== LIMITATIONS =========================== -->
+<section class="section section-tint" id="limitations">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Simulation</h2>
-        <p class="content">TODO: describe the simulated environments and task suite.</p>
+      <div class="column is-four-fifths reveal">
+        <h2 class="title is-3">Limitations &amp; Future Work</h2>
       </div>
     </div>
     <div class="columns is-centered">
-      <div class="column">
-        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
-          <source src="./static/videos/sim_1.mp4" type="video/mp4">
-        </video>
-        <p class="caption has-text-centered">TODO: sim task 1</p>
+      <div class="column is-four-fifths content reveal">
+        <ul class="limitations-list">
+          <li>
+            <b>Closed-set detection.</b> The current implementation uses a predefined closed-set prompt
+            for object detection. Incorporating open-vocabulary detectors would let memory capture more
+            diverse objects and attributes.
+          </li>
+          <li>
+            <b>Robot-initiated actions only.</b> The interaction analyzer reasons about the robot's own
+            actions. Extending it to human actions would broaden the framework to HRI settings, where
+            memory must update from both robot and human activity.
+          </li>
+          <li>
+            <b>Richer primitives.</b> The same memory-conditioned interface could be extended to more
+            expressive policy primitives, including VLA-based policies.
+          </li>
+        </ul>
       </div>
-      <div class="column">
-        <video class="placeholder-media" autoplay muted loop playsinline poster="./static/images/placeholder.svg">
-          <source src="./static/videos/sim_2.mp4" type="video/mp4">
-        </video>
-        <p class="caption has-text-centered">TODO: sim task 2</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= EXPERIMENTS ========================= -->
-<section class="section" id="experiments">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experiments</h2>
-        <p class="content">
-          TODO: headline result. In the paper: <span class="messymem">MessyMem</span> improves task success
-          by 24% over the closest baseline.
-        </p>
-      </div>
-    </div>
-
-    <h3 class="title is-4 has-text-centered">Comparison to Baselines</h3>
-    <div class="table-container">
-      <table class="table is-fullwidth is-striped is-hoverable results-table">
-        <thead>
-          <tr>
-            <th>Method</th>
-            <th class="has-text-centered">Task A</th>
-            <th class="has-text-centered">Task B</th>
-            <th class="has-text-centered">Task C</th>
-            <th class="has-text-centered">Average</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>TODO: Baseline 1</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td></tr>
-          <tr><td>TODO: Baseline 2</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td></tr>
-          <tr><td>TODO: Baseline 3</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td><td class="has-text-centered">&ndash;</td></tr>
-          <tr class="is-selected"><td><b>MessyMem (Ours)</b></td><td class="has-text-centered"><b>&ndash;</b></td><td class="has-text-centered"><b>&ndash;</b></td><td class="has-text-centered"><b>&ndash;</b></td><td class="has-text-centered"><b>&ndash;</b></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="title is-4 has-text-centered mt-6">Ablations</h3>
-    <p class="content has-text-centered">
-      TODO: each memory property is necessary &mdash; drop in the ablation table or a figure here.
-    </p>
-    <div class="content has-text-centered">
-      <img src="./static/images/placeholder.svg" alt="Ablation results">
-    </div>
-  </div>
-</section>
-
-<!-- ====================== QUALITATIVE / FAILURES ====================== -->
-<section class="section" id="qualitative">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Qualitative Analysis</h2>
-        <p class="content">
-          TODO: memory-in-action examples (scene-graph snapshots, retrieved keyframes) and failure cases.
-        </p>
-      </div>
-    </div>
-    <div class="content has-text-centered">
-      <img src="./static/images/placeholder.svg" alt="Qualitative examples">
     </div>
   </div>
 </section>
@@ -467,9 +1073,11 @@
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title is-3">BibTeX</h2>
-    <pre><code>@inproceedings{TODO2026messymem,
+    <!-- Swap in the arXiv eprint / official CoRL proceedings fields once they exist. -->
+    <pre><code>@inproceedings{banwasi2026messymem,
   title     = {MessyMem: Learning-from-Doing Memory for Mobile Manipulation},
-  author    = {TODO, First and TODO, Second and TODO, Third},
+  author    = {Banwasi, Anuva and Muckelroy III, William and Sundaresan, Priya
+               and Zhao, Linfeng and Bohg, Jeannette and Ho, Cherie},
   booktitle = {Conference on Robot Learning (CoRL)},
   year      = {2026}
 }</code></pre>
@@ -480,6 +1088,7 @@
 <section class="section" id="acknowledgements">
   <div class="container is-max-desktop content">
     <h2 class="title is-3">Acknowledgements</h2>
+    <!-- TODO: funding sources, compute, and people to thank. Not in the paper - fill in or delete this section. -->
     <p>TODO: funding sources, compute, and people to thank.</p>
   </div>
 </section>
@@ -491,10 +1100,8 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            <a class="icon-link" href="./static/pdfs/messymem_corl2026.pdf" target="_blank">
-              <i class="fas fa-file-pdf"></i></a>
-            <a class="icon-link" href="https://github.com/TODO/messymem" target="_blank">
-              <i class="fab fa-github"></i></a>
+            <a class="icon-link" href="./static/pdfs/_Public_release__MessyMem.pdf" target="_blank"
+               aria-label="Paper PDF"><i class="fas fa-file-pdf"></i></a>
           </p>
           <p>
             This website is licensed under a
