@@ -1367,3 +1367,42 @@ body.lb-locked { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .taskfam:hover { transform: none; }
 }
+
+
+/* --- Teaser unmute overlay ----------------------------------------------
+   The teaser is narrated but must autoplay muted, and the native volume
+   control is small enough that many viewers never realise there is sound.
+   This pill sits top-left (clear of the native control bar) and disappears
+   once sound is on, whichever control turned it on. */
+.teaser-frame { position: relative; }
+
+.unmute-btn {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(12, 13, 16, 0.72);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, opacity .25s ease, transform .25s ease;
+}
+.unmute-btn:hover { background: rgba(12, 13, 16, 0.88); }
+.unmute-btn:focus-visible { outline: 2px solid #86b6ef; outline-offset: 2px; }
+
+.teaser-frame.is-unmuted .unmute-btn {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unmute-btn { transition: none; }
+}

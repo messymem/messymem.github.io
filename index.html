@@ -144,11 +144,19 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" class="teaser-video" autoplay muted loop playsinline controls
-             preload="metadata" poster="./static/images/teaser_poster.jpg">
-        <source src="./static/videos/teaser.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <!-- Narrated teaser. Starts muted (browsers only allow autoplay when muted);
+           the overlay button and the native controls both turn sound on, and the
+           controls allow scrubbing. -->
+      <div class="teaser-frame">
+        <video id="teaser" class="teaser-video" autoplay muted loop playsinline controls
+               preload="metadata" poster="./static/images/teaser_poster.jpg">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button type="button" class="unmute-btn" id="teaserUnmute" aria-label="Turn on sound">
+          <i class="fas fa-volume-up" aria-hidden="true"></i><span>Tap for sound</span>
+        </button>
+      </div>
       <h2 class="subtitle has-text-centered">
         <span class="messymem">MessyMem</span> is a persistent memory system for mobile manipulation. It
         maintains a 3D scene graph that is

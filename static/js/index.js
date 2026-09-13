@@ -124,22 +124,63 @@ window.HELP_IMPROVE_VIDEOJS = false;
     var videos = document.querySelectorAll("video[autoplay]");
     if (!videos.length || !("IntersectionObserver" in window)) return;
 
+    // Pause without it counting as the viewer's own pause.
+    function autoPause(v) {
+      if (v.paused) return;
+      v._autoPausing = true;
+      v.pause();
+    }
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var v = entry.target;
         if (entry.isIntersecting) {
+          // Respect a manual pause: never restart a video the viewer stopped
+          // (for the narrated teaser that would restart the voiceover unasked).
+          if (v._userPaused) return;
           var playing = v.play();
           if (playing && typeof playing.catch === "function") playing.catch(function () {});
-        } else if (!v.paused) {
-          v.pause();
+        } else {
+          autoPause(v);
         }
       });
     }, { threshold: 0.15 });
 
     Array.prototype.forEach.call(videos, function (v) {
-      v.pause();
+      v.addEventListener("pause", function () {
+        if (v._autoPausing) v._autoPausing = false;
+        else v._userPaused = true;
+      });
+      v.addEventListener("play", function () { v._userPaused = false; });
+      autoPause(v);
       io.observe(v);
     });
+  }
+
+  /* --- Teaser: one-tap sound ------------------------------------------ */
+  function initTeaserSound() {
+    var video = document.getElementById("teaser");
+    var btn = document.getElementById("teaserUnmute");
+    if (!video || !btn) return;
+    var frame = video.parentNode;
+
+    // Track the real muted state, so the pill also hides when sound is turned on
+    // from the native controls, and comes back if the viewer mutes again.
+    function sync() {
+      var on = !video.muted && video.volume > 0;
+      frame.classList.toggle("is-unmuted", on);
+      btn.setAttribute("aria-hidden", on ? "true" : "false");
+      btn.tabIndex = on ? -1 : 0;
+    }
+
+    btn.addEventListener("click", function () {
+      video.muted = false;
+      if (video.volume === 0) video.volume = 1;
+      var p = video.play();
+      if (p && typeof p.catch === "function") p.catch(function () {});
+    });
+    video.addEventListener("volumechange", sync);
+    sync();
   }
 
   /* --- Carousel ------------------------------------------------------- */
@@ -379,6 +420,7 @@ window.HELP_IMPROVE_VIDEOJS = false;
     initCounters();
     // After the carousel clones slides, so cloned videos are observed too.
     initLightbox();
+    initTeaserSound();
     setTimeout(initLazyVideo, 0);
   });
 })();
