@@ -1507,3 +1507,35 @@ body.lb-locked { overflow: hidden; }
   padding: 0.45em 0.5em;
   white-space: nowrap;
 }
+
+
+/* --- Title + nav colour wash (after messynav.github.io) ---------------------
+   White ground with a faint wash fading in from each edge: purple from the
+   left, coral from the right, the same direction as the title wordmark's
+   gradient. Each wash is gone by about a third of the width, so the centred
+   title and links sit on clean white. The nav repeats it so the two read as
+   one band while the sticky nav is over the title. */
+:root {
+  --c-global-rgb: 165, 113, 200;
+  --c-fine-rgb: 240, 138, 110;
+}
+
+.hero-wash {
+  background-color: #fff;
+  background-image:
+    linear-gradient(to right, rgba(var(--c-global-rgb), 0.18), rgba(var(--c-global-rgb), 0) 34%),
+    linear-gradient(to left, rgba(var(--c-fine-rgb), 0.18), rgba(var(--c-fine-rgb), 0) 34%);
+  border-bottom: 1px solid var(--c-rule);
+}
+
+.site-nav {
+  background-color: rgba(255, 255, 255, 0.92);
+  background-image:
+    linear-gradient(to right, rgba(var(--c-global-rgb), 0.18), rgba(var(--c-global-rgb), 0) 34%),
+    linear-gradient(to left, rgba(var(--c-fine-rgb), 0.18), rgba(var(--c-fine-rgb), 0) 34%);
+}
+
+/* Bulma paints the open mobile menu white, which would cut the wash off
+   under the burger; let the nav's own background show through instead. */
+.site-nav .navbar-menu,
+.site-nav .navbar-brand { background-color: transparent; }
