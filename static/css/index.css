@@ -1509,30 +1509,23 @@ body.lb-locked { overflow: hidden; }
 }
 
 
-/* --- Title + nav colour wash (after messynav.github.io) ---------------------
-   White ground with a faint wash fading in from each edge: purple from the
-   left, coral from the right, the same direction as the title wordmark's
-   gradient. Each wash is gone by about a third of the width, so the centred
-   title and links sit on clean white. The nav repeats it so the two read as
-   one band while the sticky nav is over the title. */
+/* --- Nav colour gradient (after messynav.github.io) --------------------------
+   A faint full-width wash across the sticky nav in all three property
+   colours: purple on the left, turquoise through the middle, coral on the
+   right, the same order as the title wordmark gradient. Kept to the nav only;
+   the title block stays plain white. */
 :root {
   --c-global-rgb: 165, 113, 200;
+  --c-interaction-rgb: 69, 181, 165;
   --c-fine-rgb: 240, 138, 110;
-}
-
-.hero-wash {
-  background-color: #fff;
-  background-image:
-    linear-gradient(to right, rgba(var(--c-global-rgb), 0.18), rgba(var(--c-global-rgb), 0) 34%),
-    linear-gradient(to left, rgba(var(--c-fine-rgb), 0.18), rgba(var(--c-fine-rgb), 0) 34%);
-  border-bottom: 1px solid var(--c-rule);
 }
 
 .site-nav {
   background-color: rgba(255, 255, 255, 0.92);
-  background-image:
-    linear-gradient(to right, rgba(var(--c-global-rgb), 0.18), rgba(var(--c-global-rgb), 0) 34%),
-    linear-gradient(to left, rgba(var(--c-fine-rgb), 0.18), rgba(var(--c-fine-rgb), 0) 34%);
+  background-image: linear-gradient(to right,
+    rgba(var(--c-global-rgb), 0.18) 0%,
+    rgba(var(--c-interaction-rgb), 0.16) 50%,
+    rgba(var(--c-fine-rgb), 0.18) 100%);
 }
 
 /* Bulma paints the open mobile menu white, which would cut the wash off
