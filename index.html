@@ -137,9 +137,9 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
-
 
 <!-- ============================= TEASER ============================= -->
 <section class="hero teaser">
@@ -202,6 +202,21 @@
       </div>
     </div>
 
+    <div class="columns is-centered reveal">
+      <div class="column is-four-fifths">
+        <figure class="figure-block">
+          <img src="./static/images/figures/fig1_teaser.jpg"
+               alt="MessyMem builds memory while exploring to find scissors, then reuses it on later tasks to locate John's cup and avoid a locked drawer">
+          <figcaption class="figure-caption">
+            <b>(Left)</b> The robot builds memory while exploring to <i>Find me scissors</i>.
+            <b>(Right)</b> On later tasks it reuses that memory instead of re-exploring: fine-grained
+            visual evidence locates <i>John's cup</i>, and an interaction-derived property steers it away
+            from the locked drawer.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
     <!-- Headline results -->
     <div class="result-band reveal" aria-label="Key results">
       <div class="band-item">
@@ -225,21 +240,6 @@
         <span class="band-label">task progress on every real-world task</span>
       </div>
     </div>
-
-    <div class="columns is-centered reveal mt-5">
-      <div class="column is-four-fifths">
-        <figure class="figure-block">
-          <img src="./static/images/figures/fig1_teaser.jpg"
-               alt="MessyMem builds memory while exploring to find scissors, then reuses it on later tasks to locate John's cup and avoid a locked drawer">
-          <figcaption class="figure-caption">
-            <b>(Left)</b> The robot builds memory while exploring to <i>Find me scissors</i>.
-            <b>(Right)</b> On later tasks it reuses that memory instead of re-exploring: fine-grained
-            visual evidence locates <i>John's cup</i>, and an interaction-derived property steers it away
-            from the locked drawer.
-          </figcaption>
-        </figure>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -250,9 +250,8 @@
       <div class="column is-four-fifths reveal">
         <h2 class="title is-3">Real-World Deployment</h2>
         <p class="section-lead">
-          <span class="messymem">MessyMem</span> carries memory across a sequence of household tasks on a
-          real mobile manipulator in a kitchen, and <b>completes every task</b> in this qualitative
-          evaluation.
+          <span class="messymem">MessyMem</span>'s memory structure allows for <b>100% task progress</b> in
+          the real-world scenarios seen below. See more at <a href="#real-world">Real-World Results</a>.
         </p>
       </div>
     </div>
@@ -322,15 +321,8 @@
       </div>
     </div>
 
-    <p class="demo-note reveal">
-      Success rate <b>1.0</b> across these qualitative kitchen tasks. In the controlled real-world
-      evaluations against ablations, <span class="messymem">MessyMem</span> reaches <b>1.00 task
-      progress</b> in both scenarios and the most efficient paths in Office Drawer Search
-      (<b>SPL 0.92</b>). See <a href="#real-world">Real-World Results</a>.
-    </p>
-
     <div class="hardware-note reveal">
-      <h3 class="hardware-title">Platform</h3>
+      <h3 class="hardware-title">Real-World Robot Platform</h3>
       <p>
         A <b>TidyBot++</b> with a 6-DoF YAM arm and holonomic mobile base. Two ZED&nbsp;2 RGB-D cameras,
         one on the base and one pole-mounted for a higher view, build the scene graph and localize
@@ -1108,7 +1100,6 @@
     </div>
   </div>
 </footer>
-
 
 <!-- ============================ LIGHTBOX ============================
      Expanded viewer for figures. Injected once and reused: clicking any
