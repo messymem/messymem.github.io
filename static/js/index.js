@@ -223,6 +223,7 @@ window.HELP_IMPROVE_VIDEOJS = false;
     var pointers = new Map();
     var pinchStart = 0, pinchScale = 1;
     var dragging = false, dragX = 0, dragY = 0, moved = false;
+    var closeTimer = null;
 
     function render() {
       img.style.transform = "translate(" + tx + "px," + ty + "px) scale(" + scale + ")";
@@ -264,14 +265,18 @@ window.HELP_IMPROVE_VIDEOJS = false;
 
     function reset() { scale = 1; tx = 0; ty = 0; render(); }
 
-    function open(sourceImg) {
+    function open(source) {
+      clearTimeout(closeTimer);
       lastFocus = document.activeElement;
-      img.src = sourceImg.currentSrc || sourceImg.src;
-      img.alt = sourceImg.alt || "";
+      var description = source.getAttribute("data-figure-caption");
+      img.src = description !== null ? source.href : (source.currentSrc || source.src);
+      img.alt = description !== null ? description : (source.alt || "");
 
-      var fig = sourceImg.closest("figure");
+      var fig = source.closest("figure");
       var cap = fig && fig.querySelector(".figure-caption");
-      capEl.innerHTML = cap ? cap.innerHTML : (sourceImg.alt || "");
+      if (description !== null) capEl.textContent = description;
+      else if (cap) capEl.innerHTML = cap.innerHTML;
+      else capEl.textContent = source.alt || "";
 
       box.hidden = false;
       box.setAttribute("aria-hidden", "false");
@@ -287,6 +292,7 @@ window.HELP_IMPROVE_VIDEOJS = false;
     }
 
     function close() {
+      if (box.hidden || !box.classList.contains("is-open")) return;
       box.classList.remove("is-open");
       document.body.classList.remove("lb-locked");
       box.setAttribute("aria-hidden", "true");
@@ -294,7 +300,7 @@ window.HELP_IMPROVE_VIDEOJS = false;
         box.hidden = true;
         img.removeAttribute("src");
       };
-      if (reduceMotion) done(); else setTimeout(done, 220);
+      if (reduceMotion) done(); else closeTimer = setTimeout(done, 220);
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 
@@ -306,6 +312,17 @@ window.HELP_IMPROVE_VIDEOJS = false;
       el.setAttribute("aria-label", "Expand figure: " + (el.alt || "figure"));
       el.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(el); }
+      });
+    });
+
+    // Keep a real image URL as a fallback and allow opening it in a new tab.
+    document.querySelectorAll("a[data-figure-caption]").forEach(function (link) {
+      link.setAttribute("aria-haspopup", "dialog");
+      link.setAttribute("aria-controls", "lightbox");
+      link.addEventListener("click", function (e) {
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        open(link);
       });
     });
 

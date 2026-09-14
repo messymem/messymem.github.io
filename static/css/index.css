@@ -706,6 +706,121 @@ section[id] {
 .scenario-card > p + p { margin-top: 0.85rem; }
 .scenario-card .figure-block { margin-top: 1.5rem; }
 
+/* Focused experiments: compact decision diagrams with the paper one click away. */
+.scenario-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+  scroll-margin-top: 7rem;
+}
+.scenario-compact {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 1.4rem;
+}
+.scenario-compact .title.is-4 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+  margin-bottom: 0.7rem;
+}
+.scenario-compact .scenario-badges { min-height: 2.8rem; align-content: flex-start; }
+.scenario-compact .badge { font-size: 0.63rem; letter-spacing: 0; }
+.scenario-compact > .experiment-sequence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.55rem;
+  margin: 0 0 1rem;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+.experiment-sequence b { color: var(--ink-3); font-weight: 500; margin-right: 0.25rem; }
+.sequence-arrow { color: var(--c-global-dark); }
+.experiment-diagram {
+  margin: 0;
+  padding: 0.9rem 0.65rem 0.8rem;
+  border: 1px solid var(--c-rule);
+  border-radius: 9px;
+  background: #fafbfc;
+}
+.cabinet-options, .clutter-options { display: grid; gap: 0.5rem; }
+.cabinet-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.clutter-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cabinet-option { display: flex; flex-direction: column; align-items: center; min-width: 0; text-align: center; }
+.cabinet-name { color: var(--ink-3); font-size: 0.7rem; margin-bottom: 0.45rem; }
+.cabinet-door {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 104px;
+  height: 68px;
+  margin-bottom: 0.6rem;
+  border: 2px solid #c7c1b6;
+  border-radius: 4px;
+  background: #f3f0e9;
+  box-shadow: inset 0 0 0 5px #faf8f3;
+  color: #777368;
+  font-size: 1.15rem;
+}
+.cabinet-door::after { content: ""; position: absolute; right: 9px; top: 27px; width: 3px; height: 13px; background: currentColor; border-radius: 2px; }
+.cabinet-door.is-locked { color: #a45647; border-color: #d6ada4; background: #f7eae6; box-shadow: inset 0 0 0 5px #fcf4f0; }
+.cabinet-door.is-unseen { color: #23796c; border-color: #72b1a6; background: #e4f2ee; box-shadow: inset 0 0 0 5px #f3faf7; font-weight: 700; }
+.cabinet-option strong { color: var(--ink-1); font-size: 0.78rem; line-height: 1.5; }
+.cabinet-note { color: var(--ink-2); font-size: 0.66rem; line-height: 1.6; }
+.choice-label { margin-top: 0.5rem; padding: 0.16rem 0.7rem; border-radius: 5px; background: #eceef1; color: var(--ink-2); font-size: 0.67rem; font-weight: 700; }
+.choice-label.is-success { color: #216e61; background: #dcefe9; }
+.clutter-scene { display: block; width: 100%; height: 68px; margin-bottom: 0.6rem; }
+.clutter-scene .shelf-back { fill: #f3f0e9; stroke: #c7c1b6; stroke-width: 2; }
+.clutter-scene .shelf-line { fill: none; stroke: #c7c1b6; stroke-width: 2; }
+.clutter-scene .stored-item { fill: #c8c1b0; stroke: #918978; stroke-width: 1.3; }
+.clutter-scene .access-space { fill: #e0f0e8; stroke: #72b1a6; stroke-dasharray: 3 3; }
+.clutter-scene .blocked-space { fill: #f2ded5; stroke: #c68e7c; stroke-dasharray: 3 3; }
+.clutter-scene .ketchup-bottle { fill: #c85b48; stroke: #a94335; stroke-width: 1.2; }
+.clutter-scene .bottle-cap { fill: #984135; }
+.clutter-scene .bottle-label { fill: #fff3df; }
+.clutter-scene .access-arrow { fill: none; stroke: #2f8d7f; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.experiment-diagram figcaption { margin-top: 0.9rem; padding-top: 0.7rem; border-top: 1px solid var(--c-rule); color: var(--ink-2); font-size: 0.76rem; line-height: 1.55; }
+.experiment-diagram figcaption b { display: block; color: var(--ink-1); }
+.experiment-outcomes { display: grid; gap: 0.5rem; padding: 1rem 0; margin-bottom: auto; }
+.experiment-outcomes p { display: flex; align-items: baseline; gap: 0.45rem; font-size: 0.74rem; line-height: 1.5; color: var(--ink-2); }
+.experiment-outcomes b { color: var(--ink-1); }
+.outcome-mark { flex-shrink: 0; width: 0.8rem; font-weight: 700; }
+.outcome-mark.is-success { color: #267d6c; }
+.outcome-mark.is-failure { color: #b45340; }
+.experiment-expand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--c-rule);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--c-global-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.experiment-expand:hover { color: #70408f; background: #f8f3fb; border-color: #cdb4de; }
+.experiment-expand:focus-visible { outline: 3px solid var(--c-global-dark); outline-offset: 3px; }
+@media screen and (max-width: 1023px) {
+  .scenario-pair { grid-template-columns: 1fr; }
+  .scenario-compact .scenario-badges { min-height: 0; margin-bottom: 0.85rem; }
+}
+@media screen and (max-width: 480px) {
+  .scenario-compact { padding: 1rem; }
+  .scenario-compact .title.is-4 { font-size: 1.18rem; }
+  .scenario-compact > .experiment-sequence { gap: 0.25rem 0.4rem; font-size: 0.71rem; }
+  .cabinet-option strong { font-size: 0.71rem; }
+  .cabinet-note { font-size: 0.62rem; }
+  .clutter-options .cabinet-note { max-width: 15ch; }
+}
+
 /* --- Stat tiles --------------------------------------------------------- */
 .stat-grid {
   display: grid;

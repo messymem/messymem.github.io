@@ -33,6 +33,9 @@ FIGURES = {
     (24, 1): "fig7_clutter_pick",
 }
 
+# The compact simulation cards expand to the source image at its native size.
+FULL_RES_FIGURES = {"fig6_locked_cabinets", "fig7_clutter_pick"}
+
 
 def main() -> int:
     if not PDF.exists():
@@ -49,6 +52,10 @@ def main() -> int:
             continue
         raw = doc.extract_image(images[idx][0])
         im = Image.open(io.BytesIO(raw["image"])).convert("RGB")
+        if stem in FULL_RES_FIGURES:
+            full_dest = OUT / f"{stem}_full.png"
+            im.save(full_dest, "PNG", optimize=True)
+            print(f"{full_dest}  {im.width}x{im.height} (full detail)")
         if im.width > MAX_W:
             im = im.resize((MAX_W, round(im.height * MAX_W / im.width)), Image.LANCZOS)
         dest = OUT / f"{stem}.jpg"
