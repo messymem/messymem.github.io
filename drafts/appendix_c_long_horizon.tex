@@ -1,0 +1,41 @@
+% Requires \usepackage{xcolor} in the document preamble.
+\begingroup
+\color{red}
+
+\paragraph{25-task Long Horizon.}
+We evaluate an ordered sequence of 25 household tasks in a 10-cabinet
+RoboCasa365 kitchen containing more than 60 objects and fixtures. Three
+cabinets are locked, and objects on the counters provide distractors and
+visual references. An initial search for a teapot in the final cabinet
+encourages exploration; subsequent tasks reuse earlier observations and
+interaction outcomes without resetting memory or the environment. The
+sequence spans four task families:
+
+\begin{itemize}
+\item \textbf{Finding (9 tasks).}
+Locate objects using remembered locations, neighboring items, or
+accessibility. Examples include distinguishing a stored mug from one on
+a counter, identifying ketchup by its surrounding condiments or fruit,
+and finding the bottle with clear space for grasping.
+
+\item \textbf{Matching (9 tasks).}
+Distinguish three visual variants within each of seven object categories,
+using either a specified identity or a countertop reference. Similar
+colors and category labels make branding and appearance important.
+Targets are also placed in unexpected locations, such as Corn Flakes in
+the fruit cabinet, to discourage shortcuts based on cabinet categories.
+
+\item \textbf{Manipulation (3 tasks).}
+Select where bread, a mug, or a bowl belongs using remembered cabinet
+contents. For example, bread belongs with the pantry's dry goods even
+though no cabinet already contains bread. The robot selects a destination
+without transporting the object.
+
+\item \textbf{Memory queries (4 tasks).}
+Recall previously observed contents and spatial relationships, such as
+what was stored with the mayonnaise or where the croissant near the
+pineapple was located. These questions can be answered from existing
+memory without further exploration.
+\end{itemize}
+
+\endgroup

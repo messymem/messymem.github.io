@@ -604,65 +604,49 @@
       </div>
       <p>
         <b>25 <i>consecutive</i> household tasks</b> in a 10-cabinet kitchen with <b>more than 60 objects and fixtures</b>,
-        run for <b>over three hours without resetting memory</b>. The tasks span <b>four families</b>, each
-        stressing a different part of memory.
+        run for <b>over three hours without resetting memory or the environment</b>. Three cabinets are locked.
+        An initial teapot search encourages exploration; later tasks reuse earlier observations across
+        <b>four task families</b>.
       </p>
 
       <div class="taskfam-grid">
         <div class="taskfam is-global">
           <span class="taskfam-kicker">Family 01</span>
-          <h4 class="taskfam-name">Finding</h4>
+          <h4 class="taskfam-name">Finding (9 tasks)</h4>
           <p>
-            Locate an object seen only earlier in the run. The scene graph must still know
-            <b><i>where</i></b> it is, hours later.
+            Locate objects using <b>remembered locations, neighboring items, or accessibility</b>.
           </p>
-          <p class="taskfam-eg"><span>Example</span> finding the blue mug that was put away earlier</p>
+          <p class="taskfam-eg"><span>Example</span> finding a stored mug among countertop distractors</p>
         </div>
 
         <div class="taskfam is-fine">
           <span class="taskfam-kicker">Family 02</span>
-          <h4 class="taskfam-name">Matching</h4>
+          <h4 class="taskfam-name">Matching (9 tasks)</h4>
           <p>
-            Pick one instance among look-alikes. A label like <code>cup</code> cannot tell them apart;
-            <b>a retrieved keyframe can</b>.
+            Identify a specified object instance or match a countertop reference using
+            <b>visual details from earlier observations</b>.
           </p>
-          <p class="taskfam-eg"><span>Example</span> matching a cup to one observed earlier; identifying a
-            reusable bottle among similar variants</p>
+          <p class="taskfam-eg"><span>Example</span> distinguishing cereal brands, even when Corn Flakes is stored in the fruit cabinet</p>
         </div>
 
         <div class="taskfam is-interaction">
           <span class="taskfam-kicker">Family 03</span>
-          <h4 class="taskfam-name">Manipulation</h4>
+          <h4 class="taskfam-name">Manipulation (3 tasks)</h4>
           <p>
-            <b>Reason about whether an action will work</b>, using properties learned by acting:
+            <b>Select a storage destination</b> for bread, a mug, or a bowl using remembered cabinet
+            contents, without transporting the object.
           </p>
-          <p class="taskfam-props">
-            <code>openable</code><code>fullness</code><code>accessible</code><code>pickable</code><code>pushable</code>
-          </p>
-          <p>
-            A fixture known to be locked is skipped before the robot drives to it, <code>fullness</code>
-            and <code>accessible</code> show whether there is room and a clear approach, and
-            <code>pickable</code> records what can be lifted based on a prior attempt.
-          </p>
-          <!-- <p>
-            <b>Object counts alone mislead.</b> A cabinet holding <b><i>fewer</i></b> items can be the
-            harder one to pick from when the target is wedged behind them &mdash; so a planner reasoning
-            only over the scene graph's tallies drives to exactly the wrong cabinet. Executability comes
-            from what the analyzer wrote down and what the keyframes show, not from how many labels a node
-            happens to list.
-          </p> -->
-          <p class="taskfam-eg"><span>Example</span> putting an object away with the items it belongs
-            alongside; skipping a fixture already known to be locked</p>
+          <p class="taskfam-eg"><span>Example</span> choosing the pantry cabinet for bread based on its dry goods</p>
         </div>
 
         <div class="taskfam is-query">
           <span class="taskfam-kicker">Family 04</span>
-          <h4 class="taskfam-name">Memory Queries</h4>
+          <h4 class="taskfam-name">Memory Queries (4 tasks)</h4>
           <p>
-            Answer a question <b>from memory alone, with no physical action</b>: the purest test of
-            whether memory is truly queryable.
+            Recall earlier contents and spatial relationships. These questions <b>can be answered
+            from existing memory</b> without further exploration.
           </p>
-          <p class="taskfam-eg"><span>Example</span> recalling which objects were stored in the cabinet with the ketchup and mayonnaise</p>
+          <p class="taskfam-eg"><span>Example</span> recalling which objects were stored with the mayonnaise</p>
         </div>
       </div>
       <figure class="figure-block is-inset">
