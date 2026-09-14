@@ -1426,3 +1426,94 @@ body.lb-locked { overflow: hidden; }
     color: transparent;
   }
 }
+
+
+/* --- Teaser spacing -------------------------------------------------------
+   More air between the teaser video and the one-line description under it. */
+.teaser .hero-body .subtitle { margin-top: 1.9rem; }
+
+/* --- Headline result band --------------------------------------------------
+   The handful of numbers people should leave with, directly under the
+   abstract. Flex-wrap rather than a fixed grid so any row count (5 on desktop,
+   fewer on narrow screens) centres cleanly without empty grid cells. */
+.result-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2.25rem auto 0;
+}
+
+.band-item {
+  flex: 1 1 10rem;
+  max-width: 12.5rem;
+  padding: 1.15rem 0.85rem 1.05rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--c-rule);
+  border-radius: 12px;
+}
+
+.band-num {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--lvl-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Same property gradient as the title wordmark, behind the same @supports
+   guard so unsupported browsers show solid text rather than invisible text. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .band-num {
+    background: linear-gradient(90deg,
+      var(--c-global-dark) 0%, var(--c-interaction-dark) 55%, var(--c-fine-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+.band-unit {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink-3);
+  margin-left: 0.15rem;
+}
+
+.band-label {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+/* --- Real-world demo note + table note -------------------------------------- */
+.demo-note {
+  max-width: 46rem;
+  margin: 1.25rem auto 0;
+  text-align: center;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.demo-note b { color: var(--ink-1); }
+
+.table-note {
+  font-size: 0.82rem !important;
+  line-height: 1.55;
+  color: var(--ink-3) !important;
+  margin-top: 0.5rem;
+}
+
+/* Twelve data columns in the Office Drawer table: tighten cell padding so it
+   fits without scrolling on a laptop; it still scrolls inside its container
+   on narrow screens. */
+.results-table.is-compact-cols th,
+.results-table.is-compact-cols td {
+  padding: 0.45em 0.5em;
+  white-space: nowrap;
+}
