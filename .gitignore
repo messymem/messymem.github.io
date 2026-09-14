@@ -4,8 +4,7 @@
 Thumbs.db
 node_modules/
 
-# Original submission PDF (untracked): the copy the site serves lives at
-# static/pdfs/messymem_corl2026.pdf, so don't store the same 8.4MB blob twice.
+# Keep earlier submission drafts local.
 /_CoRL_2026_Submission__*.pdf
 
 # Large source videos staged for conversion. Only the compressed results in
@@ -16,6 +15,6 @@ node_modules/
 # beside them; keep the originals locally without committing tens of MB.
 /static/images/simulation/*.png
 
-# Paper PDFs are deliberately not tracked. They were purged from history; keep
-# them locally in static/pdfs/ and link the site at an external copy instead.
+# Publish only the submitted arXiv paper; keep draft PDFs local.
 /static/pdfs/*.pdf
+!/static/pdfs/MessyMem_arxiv.pdf
