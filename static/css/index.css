@@ -1406,3 +1406,23 @@ body.lb-locked { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .unmute-btn { transition: none; }
 }
+
+
+/* --- Title wordmark gradient ---------------------------------------------
+   Scoped to the hero title only: .messymem appears throughout the body copy,
+   where gradient text would be noisy. Uses the -dark property variants - the
+   base paper colours are too light as solid text on white even at this size.
+   Wrapped in @supports so a browser without background-clip:text falls back
+   to ordinary solid text instead of transparent (invisible) text. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .publication-title .messymem {
+    background: linear-gradient(90deg,
+      var(--c-global-dark) 0%,
+      var(--c-interaction-dark) 50%,
+      var(--c-fine-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
