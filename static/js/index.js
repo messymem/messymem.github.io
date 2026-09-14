@@ -157,30 +157,33 @@ window.HELP_IMPROVE_VIDEOJS = false;
     });
   }
 
-  /* --- Teaser: one-tap sound ------------------------------------------ */
-  function initTeaserSound() {
-    var video = document.getElementById("teaser");
-    var btn = document.getElementById("teaserUnmute");
-    if (!video || !btn) return;
-    var frame = video.parentNode;
+  /* --- One-tap sound for narrated videos -----------------------------
+     Any .sound-frame holding a <video> and an .unmute-btn gets a pill that
+     turns sound on. Used by the teaser and the Memory in Action walkthrough. */
+  function initSoundButtons() {
+    Array.prototype.forEach.call(document.querySelectorAll(".sound-frame .unmute-btn"), function (btn) {
+      var frame = btn.parentNode;
+      var video = frame.querySelector("video");
+      if (!video) return;
 
-    // Track the real muted state, so the pill also hides when sound is turned on
-    // from the native controls, and comes back if the viewer mutes again.
-    function sync() {
-      var on = !video.muted && video.volume > 0;
-      frame.classList.toggle("is-unmuted", on);
-      btn.setAttribute("aria-hidden", on ? "true" : "false");
-      btn.tabIndex = on ? -1 : 0;
-    }
+      // Track the real muted state, so the pill also hides when sound is turned on
+      // from the native controls, and comes back if the viewer mutes again.
+      function sync() {
+        var on = !video.muted && video.volume > 0;
+        frame.classList.toggle("is-unmuted", on);
+        btn.setAttribute("aria-hidden", on ? "true" : "false");
+        btn.tabIndex = on ? -1 : 0;
+      }
 
-    btn.addEventListener("click", function () {
-      video.muted = false;
-      if (video.volume === 0) video.volume = 1;
-      var p = video.play();
-      if (p && typeof p.catch === "function") p.catch(function () {});
+      btn.addEventListener("click", function () {
+        video.muted = false;
+        if (video.volume === 0) video.volume = 1;
+        var p = video.play();
+        if (p && typeof p.catch === "function") p.catch(function () {});
+      });
+      video.addEventListener("volumechange", sync);
+      sync();
     });
-    video.addEventListener("volumechange", sync);
-    sync();
   }
 
   /* --- Carousel ------------------------------------------------------- */
@@ -420,7 +423,7 @@ window.HELP_IMPROVE_VIDEOJS = false;
     initCounters();
     // After the carousel clones slides, so cloned videos are observed too.
     initLightbox();
-    initTeaserSound();
+    initSoundButtons();
     setTimeout(initLazyVideo, 0);
   });
 })();

@@ -1374,7 +1374,15 @@ body.lb-locked { overflow: hidden; }
    control is small enough that many viewers never realise there is sound.
    This pill sits top-left (clear of the native control bar) and disappears
    once sound is on, whichever control turned it on. */
-.teaser-frame { position: relative; }
+.teaser-frame,
+.sound-frame { position: relative; }
+
+/* The walkthrough video is capped at 900px and centred; the frame must match
+   so the sound pill sits on the video's corner, not the container's. */
+.content-frame {
+  max-width: 900px;
+  margin: 0 auto;
+}
 
 .unmute-btn {
   position: absolute;
@@ -1397,7 +1405,8 @@ body.lb-locked { overflow: hidden; }
 .unmute-btn:hover { background: rgba(12, 13, 16, 0.88); }
 .unmute-btn:focus-visible { outline: 2px solid #86b6ef; outline-offset: 2px; }
 
-.teaser-frame.is-unmuted .unmute-btn {
+.teaser-frame.is-unmuted .unmute-btn,
+.sound-frame.is-unmuted .unmute-btn {
   opacity: 0;
   transform: translateY(-4px);
   pointer-events: none;
@@ -1459,21 +1468,8 @@ body.lb-locked { overflow: hidden; }
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--lvl-3);
+  color: var(--ink-1);
   font-variant-numeric: tabular-nums;
-}
-
-/* Same property gradient as the title wordmark, behind the same @supports
-   guard so unsupported browsers show solid text rather than invisible text. */
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .band-num {
-    background: linear-gradient(90deg,
-      var(--c-global-dark) 0%, var(--c-interaction-dark) 55%, var(--c-fine-dark) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
 }
 
 .band-unit {

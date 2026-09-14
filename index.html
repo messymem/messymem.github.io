@@ -148,7 +148,7 @@
       <!-- Narrated teaser. Starts muted (browsers only allow autoplay when muted);
            the overlay button and the native controls both turn sound on, and the
            controls allow scrubbing. -->
-      <div class="teaser-frame">
+      <div class="teaser-frame sound-frame">
         <video id="teaser" class="teaser-video" autoplay muted loop playsinline controls
                preload="metadata" poster="./static/images/teaser_poster.jpg">
           <source src="./static/videos/teaser.mp4" type="video/mp4">
@@ -227,18 +227,18 @@
         <span class="band-num"><span data-count="80.0" data-decimals="1">80.0</span></span><span class="band-unit">%</span>
         <span class="band-label">task progress over 25 long-horizon tasks</span>
       </div>
-      <div class="band-item">
+      <!-- <div class="band-item">
         <span class="band-num">+<span data-count="14.8" data-decimals="1">14.8</span></span><span class="band-unit">pp</span>
         <span class="band-label">over the strongest ablation</span>
-      </div>
+      </div> -->
       <div class="band-item">
         <span class="band-num">+<span data-count="28.9" data-decimals="1">28.9</span></span><span class="band-unit">pp</span>
         <span class="band-label">over the strongest external baseline</span>
       </div>
-      <div class="band-item">
+      <!-- <div class="band-item">
         <span class="band-num"><span data-count="1.00" data-decimals="2">1.00</span></span>
         <span class="band-label">task progress on every real-world task</span>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -474,11 +474,17 @@
     <!-- Walkthrough video -->
     <div class="content has-text-centered mt-6 reveal">
       <h3 class="title is-4">Memory in Action</h3>
-      <video class="content-video" autoplay muted loop controls playsinline preload="metadata"
-             poster="./static/images/overview_poster.jpg">
-        <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <!-- Starts muted like the teaser; the overlay button or native controls turn sound on. -->
+      <div class="sound-frame content-frame">
+        <video class="content-video" autoplay muted loop controls playsinline preload="metadata"
+               poster="./static/images/overview_poster.jpg">
+          <source src="./static/videos/messymem_overview_original.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button type="button" class="unmute-btn" aria-label="Turn on sound">
+          <i class="fas fa-volume-up" aria-hidden="true"></i><span>Tap for sound</span>
+        </button>
+      </div>
       <p class="caption">
         A walkthrough of the three memory properties, followed by the robot building and querying memory
         during a task.
